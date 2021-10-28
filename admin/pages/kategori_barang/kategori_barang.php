@@ -1,7 +1,7 @@
-
-
-
-
+<?php
+switch($_GET['act']){
+  // Tampil Kategori
+  default:?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -38,8 +38,6 @@
                   </thead>
                   <tbody>
                     <?php
-                            include "../lib/config.php";
-                            include "../lib/koneksi.php";
                             $query = mysqli_query($koneksi, "SELECT * FROM kategori ORDER BY id_kategori DESC");
                             $i=1;
                             while($k=mysqli_fetch_array($query)){                              
@@ -49,8 +47,8 @@
                       <td><?= $k['nama_kategori'] ?></td>
                       <td>
                             <div class="input-group-btn pb-1">
-                              <a href="<?= $admin_url; ?>main.php?pages=edit_kategori_barang&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a href="<?= $admin_url; ?>pages/kategori_barang/aksi_hapus.php?id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
+                              <a href="<?= $admin_url; ?>main.php?pages=kategori_barang&act=editkategori&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                              <a href="<?= $admin_url; ?>pages/kategori_barang/aksi.php?act=hapus&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
                             </div>
                           </td>
                     </tr>
@@ -62,7 +60,7 @@
             </div>
             <ul class="nav navbar-right panel_toolbox">
                       <div class="input-group-btn float-right">
-                      <a href="main.php?pages=tambah_kategori_barang">
+                      <a href="main.php?pages=kategori_barang&act=tambahkategori">
                         <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
                       </a>
                     </div>                      
@@ -73,3 +71,126 @@
     </section>
     <!-- /.content -->
   </div>
+  <?php
+  break;
+  
+  // Form Tambah Kategori
+  case "tambahkategori":?>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Barang</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
+              <li class="breadcrumb-item active">Kategori Barang</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="col-12">
+<!-- Horizontal Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Form Tambah Kategori Barang</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" action="pages/kategori_barang/aksi.php?act=input" class="form-horizontal">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nama Kategori Barang</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="nama_kategori" placeholder="Nama Kategori Barang">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info float-right">Tambah</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+            <!-- /.card -->
+                    </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <?php
+  break;
+  
+  // Form Edit Kategori  
+  case "editkategori":?>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Barang</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
+              <li class="breadcrumb-item active">Kategori Barang</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <div class="col-12">
+<!-- Horizontal Form -->
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Form Kategori Barang</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" action="pages/kategori_barang/aksi.php?act=update" class="form-horizontal">
+                <?php
+                  include "../lib/config.php";
+                  include "../lib/koneksi.php";
+                  $id_kategori = $_GET['id_kategori'];
+                  $query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id_kategori='$id_kategori'");
+                  $k=mysqli_fetch_array($query);
+                ?>
+                <input type="hidden" name="id_kategori" value="<?php echo $id_kategori; ?>">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Nama kategori</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="nama_kategori" value="<?= $k['nama_kategori'] ?>" placeholder="Nama kategori">
+                    </div>
+                  </div>
+                  </div>
+                </div>
+
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-info float-right">Edit</button>
+                </div>
+                <!-- /.card-footer -->
+              </form>
+            </div>
+            <!-- /.card -->
+                    </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <?php
+  break;  
+}
+?>

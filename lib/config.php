@@ -1,4 +1,4 @@
 <?php
 
-$base_url = "http://localhost:8080/PlazaAgro/";
-$admin_url = "http://localhost:8080/PlazaAgro/admin/";
+$base_url = "http://localhost:8080/APLIKASI-E-commerce-/";
+$admin_url = "http://localhost:8080/APLIKASI-E-commerce-/admin/";

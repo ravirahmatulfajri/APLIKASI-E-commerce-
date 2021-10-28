@@ -98,7 +98,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="main.php?pages=kategori_barang" class = 'nav-link <?php if ($page == 'kategori_barang') echo " active"; ?> '>
+                <a href="main.php?pages=kategori_barang&act=" class = 'nav-link <?php if ($page == 'kategori_barang') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kategori</p>
                 </a>
