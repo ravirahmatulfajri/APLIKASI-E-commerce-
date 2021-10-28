@@ -35,10 +35,6 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'user') {
             include "pages/user/user.php";
-        } else if ($_GET['pages'] == 'tambah_user') {
-            include "pages/user/form_tambah.php";
-        } else if ($_GET['pages'] == 'edit_user') {
-            include "pages/user/form_edit.php";
 
         } else if ($_GET['pages'] == 'order') {
             include "pages/order/order.php";

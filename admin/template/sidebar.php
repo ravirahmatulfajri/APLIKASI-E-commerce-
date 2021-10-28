@@ -58,7 +58,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item"> 
-                <a href="main.php?pages=user" class = 'nav-link <?php if ($page == 'user') echo " active"; ?> '>
+                <a href="main.php?pages=user&act=" class = 'nav-link <?php if ($page == 'user') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>User</p>
                 </a>
