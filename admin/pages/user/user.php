@@ -113,6 +113,14 @@ switch($_GET['act']){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
+              <?php
+              $pilihan_status = array('N', 'Y');
+              $pilihan = '';
+              foreach ($pilihan_status as $status) {
+                $pilihan .= "<option value=$status";
+                $pilihan .= ">$status</option>\r\n";
+                }
+              ?>
               <form method="post" action="pages/user/aksi.php?act=input" class="form-horizontal">
                 <div class="card-body">
                   <div class="form-group row">
@@ -154,7 +162,7 @@ switch($_GET['act']){
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Blokir</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="blokir" placeholder="N / Y">
+                      <select name=blokir class="form-control"><?php echo $pilihan; ?></select>
                     </div>
                   </div>
                 </div>

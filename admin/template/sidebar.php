@@ -75,7 +75,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="main.php?pages=edit_profil" class = 'nav-link <?php if ($page == 'profil') echo " active"; ?> '>
+                <a href="main.php?pages=profil" class = 'nav-link <?php if ($page == 'profil') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil Toko</p>
                 </a>

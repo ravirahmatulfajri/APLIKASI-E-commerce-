@@ -28,6 +28,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'profil') {
             include "pages/profil/form_edit.php";
+            
         } else if ($_GET['pages'] == 'cara_beli') {
             include "pages/cara_beli/form_edit.php";
         } else if ($_GET['pages'] == 'aksi_cara_beli') {

@@ -34,7 +34,7 @@
                   $o=mysqli_fetch_array($query);
 
                   if ($o['status_order']=='Baru'){
-                    $pilihan_status = array('Baru', 'Lunas');
+                    $pilihan_status = array('Baru', 'Lunas', 'Batal');
                   }
                   elseif ($o['status_order']=='Lunas'){
                       $pilihan_status = array('Lunas', 'Batal');    
