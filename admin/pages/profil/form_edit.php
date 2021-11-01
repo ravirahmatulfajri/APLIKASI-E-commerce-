@@ -25,10 +25,8 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" enctype='multipart/form-data' action="pages/profil/aksi_edit.php" class="form-horizontal">
+              <form method="post" enctype='multipart/form-data' action="main.php?pages=aksi_profil" class="form-horizontal">
                 <?php
-                  include "../lib/config.php";
-                  include "../lib/koneksi.php";
                   $query = mysqli_query($koneksi, "SELECT * FROM modul WHERE id_modul='43'");
                   $s=mysqli_fetch_array($query);
                 ?>

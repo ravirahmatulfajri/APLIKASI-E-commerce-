@@ -1,6 +1,8 @@
 <?php
 include "../lib/config.php";
 include "../lib/koneksi.php";
+include "../lib/fungsi_seo.php";
+include "../lib/fungsi_thumb.php";
 session_start();
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     include "index.php";
@@ -17,10 +19,10 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'messages') {
             include "pages/messages/messages.php";
 
-        } else if ($_GET['pages'] == 'laporan_nama_barang') {
-            include "pages/guest/nama_barang.php";
-        } else if ($_GET['pages'] == 'nama_barang_custom') {
-            include "pages/guest/nama_barang_custom.php";
+        } else if ($_GET['pages'] == 'laporan_produk') {
+            include "pages/guest/produk.php";
+        } else if ($_GET['pages'] == 'produk_custom') {
+            include "pages/guest/produk_custom.php";
         } else if ($_GET['pages'] == 'laporan_order') {
             include "pages/guest/order.php";
         } else if ($_GET['pages'] == 'order_custom') {
@@ -28,6 +30,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'profil') {
             include "pages/profil/form_edit.php";
+        } else if ($_GET['pages'] == 'aksi_profil') {
+            include "pages/profil/aksi_edit.php";
             
         } else if ($_GET['pages'] == 'cara_beli') {
             include "pages/cara_beli/form_edit.php";
@@ -36,6 +40,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'user') {
             include "pages/user/user.php";
+        } else if ($_GET['pages'] == 'aksi_user') {
+            include "pages/user/aksi.php";
 
         } else if ($_GET['pages'] == 'order') {
             include "pages/order/order.php";
@@ -46,13 +52,15 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'kategori_barang') {
             include "pages/kategori_barang/kategori_barang.php";
+        } else if ($_GET['pages'] == 'aksi_kategori') {
+            include "pages/kategori_barang/aksi.php";
             
-        } else if ($_GET['pages'] == 'nama_barang') {
-            include "pages/nama_barang/nama_barang.php";
-        } else if ($_GET['pages'] == 'tambah_nama_barang') {
-            include "pages/nama_barang/form_tambah.php";
-        } else if ($_GET['pages'] == 'edit_nama_barang') {
-            include "pages/nama_barang/form_edit.php";
+        } else if ($_GET['pages'] == 'produk') {
+            include "pages/produk/produk.php";
+        } else if ($_GET['pages'] == 'tambah_produk') {
+            include "pages/produk/form_tambah.php";
+        } else if ($_GET['pages'] == 'edit_produk') {
+            include "pages/produk/form_edit.php";
 
         } else if ($_GET['pages'] == 'test') {
             include "pages/home/home2.php";
@@ -75,8 +83,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'messages') {
             include "pages/messages/messages.php";
 
-        } else if ($_GET['pages'] == 'laporan_nama_barang') {
-            include "pages/guest/nama_barang.php";
+        } else if ($_GET['pages'] == 'laporan_produk') {
+            include "pages/guest/produk.php";
         } else if ($_GET['pages'] == 'laporan_order') {
             include "pages/guest/order.php";
 
@@ -90,7 +98,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/account/account_page_custom.php";
 
         } else if ($_GET['pages'] == 'check_in') {
-            include "pages/check_in/daftar_nama_barang.php";
+            include "pages/check_in/daftar_produk.php";
         } else if ($_GET['pages'] == 'form_booking') {
             include "pages/check_in/form_booking.php";
         } else if ($_GET['pages'] == 'form_checkin') {

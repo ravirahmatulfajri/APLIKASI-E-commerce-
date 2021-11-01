@@ -48,7 +48,7 @@ switch($_GET['act']){
                       <td>
                             <div class="input-group-btn pb-1">
                               <a href="<?= $admin_url; ?>main.php?pages=kategori_barang&act=editkategori&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                              <a href="<?= $admin_url; ?>pages/kategori_barang/aksi.php?act=hapus&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
+                              <a href="<?= $admin_url; ?>main.php?pages=aksi_kategori&act=hapus&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
                             </div>
                           </td>
                     </tr>
@@ -103,7 +103,7 @@ switch($_GET['act']){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="pages/kategori_barang/aksi.php?act=input" class="form-horizontal">
+              <form method="post" action="main.php?pages=aksi_kategori&act=input" class="form-horizontal">
                 <div class="card-body">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Nama Kategori Barang</label>
@@ -158,7 +158,7 @@ switch($_GET['act']){
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form method="post" action="pages/kategori_barang/aksi.php?act=update" class="form-horizontal">
+              <form method="post" action="main.php?pages=aksi_kategori&act=update" class="form-horizontal">
                 <?php
                   include "../lib/config.php";
                   include "../lib/koneksi.php";

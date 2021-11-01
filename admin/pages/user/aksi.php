@@ -4,8 +4,6 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
   echo "<center>Untuk mengakses modul, Anda harus login dulu <br>";
   echo "<a href=../../index.php><b>LOGIN</b></a></center>";
 } else {
-	include "../../../lib/config.php";
-	include "../../../lib/koneksi.php";
 
    $act=$_GET['act'];
    if ($act=='hapus'){

@@ -58,7 +58,7 @@ switch($_GET['act']){
                       <td><?= $u['level'] ?></td>
                       <td>
                         <div class="input-group-btn">
-                          <a href="<?= $admin_url; ?>pages/user/aksi.php?act=hapus&username=<?= $u['username']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
+                          <a href="<?= $admin_url; ?>main.php?pages=aksi_user&act=hapus&username=<?= $u['username']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
                         </div>
                       </td>
                     </tr>
@@ -121,7 +121,7 @@ switch($_GET['act']){
                 $pilihan .= ">$status</option>\r\n";
                 }
               ?>
-              <form method="post" action="pages/user/aksi.php?act=input" class="form-horizontal">
+              <form method="post" action="main.php?pages=aksi_user&act=input" class="form-horizontal">
                 <div class="card-body">
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Username</label>
