@@ -88,11 +88,11 @@
               </li>          
             </ul>
           </li>
-          <li class ='nav-item <?php if ($page == 'kategori_barang' OR $page == 'nama_barang') echo " menu-open"; ?> '>
+          <li class ='nav-item <?php if ($page == 'kategori_barang' OR $page == 'produk') echo " menu-open"; ?> '>
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Barang
+                Produk
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -104,7 +104,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="main.php?pages=nama_barang" class = 'nav-link <?php if ($page == 'nama_barang') echo " active"; ?> '>
+                <a href="main.php?pages=produk&act=" class = 'nav-link <?php if ($page == 'produk') echo " active"; ?> '>
                   <i class="far fa-circle nav-icon"></i>
                   <p>Nama</p>
                 </a>

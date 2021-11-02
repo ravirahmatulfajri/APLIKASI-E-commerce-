@@ -160,8 +160,6 @@ switch($_GET['act']){
               <!-- form start -->
               <form method="post" action="main.php?pages=aksi_kategori&act=update" class="form-horizontal">
                 <?php
-                  include "../lib/config.php";
-                  include "../lib/koneksi.php";
                   $id_kategori = $_GET['id_kategori'];
                   $query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE id_kategori='$id_kategori'");
                   $k=mysqli_fetch_array($query);

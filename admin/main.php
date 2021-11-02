@@ -57,10 +57,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             
         } else if ($_GET['pages'] == 'produk') {
             include "pages/produk/produk.php";
-        } else if ($_GET['pages'] == 'tambah_produk') {
-            include "pages/produk/form_tambah.php";
-        } else if ($_GET['pages'] == 'edit_produk') {
-            include "pages/produk/form_edit.php";
+        } else if ($_GET['pages'] == 'aksi_produk') {
+            include "pages/produk/aksi.php";
 
         } else if ($_GET['pages'] == 'test') {
             include "pages/home/home2.php";
