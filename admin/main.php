@@ -9,7 +9,6 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 } else {
     if ($_SESSION['level'] == 'admin') {
         include "template/header.php";
-        include "template/sidebar.php";
 
         if (empty($_GET)) {
             include "pages/home/home.php";

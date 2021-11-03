@@ -1,7 +1,7 @@
 <?php
 function UploadImage($fupload_name){
   //direktori gambar
-  $vdir_upload = "../../../foto_produk/";
+  $vdir_upload = "../foto_produk/";
   $vfile_upload = $vdir_upload . $fupload_name;
 
   //Simpan gambar dalam ukuran sebenarnya
@@ -31,7 +31,7 @@ function UploadImage($fupload_name){
 
 function UploadBanner($fupload_name){
   //direktori banner
-  $vdir_upload = "../../../foto_banner/";
+  $vdir_upload = "../foto_banner/";
   $vfile_upload = $vdir_upload . $fupload_name;
 
   //Simpan gambar dalam ukuran sebenarnya
@@ -40,7 +40,7 @@ function UploadBanner($fupload_name){
 
 function UploadFile($fupload_name){
   //direktori file
-  $vdir_upload = "../../../files/";
+  $vdir_upload = "../files/";
   $vfile_upload = $vdir_upload . $fupload_name;
 
   //Simpan gambar dalam ukuran sebenarnya
