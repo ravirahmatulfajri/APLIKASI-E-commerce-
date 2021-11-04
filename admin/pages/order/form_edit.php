@@ -21,91 +21,101 @@
 <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Form Tambah Barang</h3>
+                <h3 class="card-title">Form Detail Order</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form method="post" action="pages/order/aksi_edit.php" class="form-horizontal">
-                <?php
-                  include "../lib/config.php";
-                  include "../lib/koneksi.php";
-                  $id_order = $_GET['id_order'];
-                  $query = mysqli_query($koneksi, "SELECT * FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer AND id_orders='$id_order'");
-                  $o=mysqli_fetch_array($query);
+              <div class="card-body">
+    <?php
+    error_reporting(0);
+    $edit = mysqli_query($koneksi, "SELECT * FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer AND id_orders='$_GET[id_order]'");
+    $r    = mysqli_fetch_array($edit);
+    
+    if ($r['status_order']=='Baru'){
+        $pilihan_status = array('Baru', 'Lunas');
+    }
+    elseif ($r['status_order']=='Lunas'){
+        $pilihan_status = array('Lunas', 'Batal');    
+    }
+    else{
+        $pilihan_status = array('Baru', 'Lunas', 'Batal');    
+    }
 
-                  if ($o['status_order']=='Baru'){
-                    $pilihan_status = array('Baru', 'Lunas', 'Batal');
-                  }
-                  elseif ($o['status_order']=='Lunas'){
-                      $pilihan_status = array('Lunas', 'Batal');    
-                  }
-                  else{
-                      $pilihan_status = array('Baru', 'Lunas', 'Batal');    
-                  }
-              
-                  $pilihan_order = '';
-                  foreach ($pilihan_status as $status) {
-                  $pilihan_order .= "<option value=$status";
-                  if ($status == $o['status_order']) {
-                      $pilihan_order .= " selected";
-                  }
-                  $pilihan_order .= ">$status</option>\r\n";
-                  }
-                ?>
-                <input type="hidden" name="id_order" value="<?php echo $id_order; ?>">
-                <div class="card-body">
-                <table border="1" cellpadding="10" cellspacing="0">
-                    <tr>
-                      <td><b>No Order</b></td>
-                      <td><?= $o['id_orders'] ?></td>
-                    </tr>
-                    <tr>
-                      <td><b>Tanggal Order</b></td>
-                      <td><?= $o['tgl_order'] ?>&<?= $o['jam_order'] ?></td>
-                    </tr>
-                    <tr>
-                      <td><b>Status Order</b></td>
-                      <td><select name=status_order><?php echo $pilihan_order; ?></select>
-                      <input type=submit value='Ubah Status'></td>
-                    </tr>
-                </table>
-              </form>
-              <table border="1" cellpadding="10" cellspacing="0">
-                    <tr>
-                      <th><b>Nama Produk</b></th>
-                      <th><b>Berat(kg)</b></th>
-                      <th><b>Jumlah</b></th>
-                      <th><b>Harga Satuan</b></th>
-                      <th><b>Sub Total</b></th>
-                    </tr>
-                <?php
-                $query2 = mysqli_query($koneksi, "SELECT * FROM orders_detail a, produk b WHERE a.id_produk=b.id_produk AND a.id_orders=$id_order");
-                while($o2=mysqli_fetch_array($query2)){
-                  $disc        = ($o2['diskon']/100)*$o2['harga'];
-                  $hargadisc   = number_format(($o2['harga']-$disc),0,",","."); 
-                  $subtotal    = ($o2['harga']-$disc) * $o2['jumlah'];
+    $pilihan_order = '';
+    foreach ($pilihan_status as $status) {
+	   $pilihan_order .= "<option value=$status";
+	   if ($status == $r['status_order']) {
+		    $pilihan_order .= " selected";
+	   }
+	   $pilihan_order .= ">$status</option>\r\n";
+    }
 
-                    $total       = $total + $subtotal;
-                    $subtotal_rp = format_rupiah($subtotal);    
-                    $total_rp    = format_rupiah($total);    
-                    $harga       = format_rupiah($o2['harga']);
+    echo "<br>
+          <form method=POST action=main.php?pages=aksi_order&act=update>
+          <input type=hidden name=id value=$r[id_orders]>
 
-                  $subtotalberat = $o2['berat'] * $o2['jumlah']; // total berat per item produk 
-                  $totalberat  = $totalberat + $subtotalberat; // grand total berat all produk yang dibeli?>
+          <table border='1' cellpadding='10' cellspacing='0'>
+          <tr><td>No. Order</td>        <td> : $r[id_orders]</td></tr>
+          <tr><td>Tgl. & Jam Order</td> <td> : $r[tgl_order] & $r[jam_order]</td></tr>
+          <tr><td>Status Order      </td><td>: <select name=status_order>$pilihan_order</select> 
+          <input type=submit value='Ubah Status'></td></tr>
+          </table></form>
+          <br>";
 
-                    <tr>
-                      <td><?= $o2['nama_produk'] ?></td>
-                      <td align=center><?= $o2['berat'] ?></td>
-                      <td align=center><?= $o2['jumlah'] ?></td>
-                      <td align=center><?php echo $harga; ?></td>
-                      <td align=center><?php echo $subtotal_rp; ?></td>
-                    </tr>
-                <?php;}?>
-              </table>
-            </div>
-            <!-- /.card -->
+  // tampilkan rincian produk yang di order
+  $sql2=mysqli_query($koneksi, "SELECT * FROM orders_detail, produk 
+                     WHERE orders_detail.id_produk=produk.id_produk 
+                     AND orders_detail.id_orders='$_GET[id_order]'");
+  
+  echo "<table class='table' border='1' cellpadding='10' cellspacing='0'> <thead class='thead-dark'>
+        <tr><th>Nama Produk</th><th>Berat(kg)</th><th>Jumlah</th><th>Harga Satuan</th><th>Sub Total</th></tr>
+        </thead>";
+  
+  while($s=mysqli_fetch_array($sql2)){
+     // rumus untuk menghitung subtotal dan total		
+   $disc        = ($s['diskon']/100)*$s['harga'];
+   $hargadisc   = number_format(($s['harga']-$disc),0,",","."); 
+   $subtotal    = ($s['harga']-$disc) * $s['jumlah'];
+
+    $total       = $total+$subtotal;
+    $subtotal_rp = number_format($subtotal,0,",",".");    
+    $total_rp    = number_format($total,0,",",".");    
+    $harga       = number_format($s['harga'],0,",",".");
+
+   $subtotalberat = $s['berat'] * $s['jumlah']; // total berat per item produk 
+   $totalberat  = $totalberat + $subtotalberat; // grand total berat all produk yang dibeli
+
+    echo "<tr><td>$s[nama_produk]</td><td align=center>$s[berat]</td><td align=center>$s[jumlah]</td>
+              <td align=right>$harga</td><td align=right>$subtotal_rp</td></tr>";
+  }
+
+  $ongkos=mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM kota,kustomer,orders 
+          WHERE kustomer.id_kota=kota.id_kota AND orders.id_kustomer=kustomer.id_kustomer AND id_orders='$_GET[id_order]'"));
+  $ongkoskirim1=$ongkos['ongkos_kirim'];
+  $ongkoskirim=$ongkoskirim1 * $totalberat;
+
+  $grandtotal    = $total + $ongkoskirim; 
+
+  $ongkoskirim_rp = number_format($ongkoskirim,0,",",".");
+  $ongkoskirim1_rp = number_format($ongkoskirim1,0,",","."); 
+  $grandtotal_rp  = number_format($grandtotal,0,",",".");   
+
+echo "<tr><td colspan=4 align=right>Total              Rp. : </td><td align=right><b>$total_rp</b></td></tr>
+      <tr><td colspan=4 align=right>Ongkos Kirim       Rp. : </td><td align=right><b>$ongkoskirim1_rp</b>/Kg</td></tr>      
+      <tr><td colspan=4 align=right>Total Berat            : </td><td align=right><b>$totalberat</b> Kg</td></tr>      
+      <tr><td colspan=4 align=right>Total Ongkos Kirim Rp. : </td><td align=right><b>$ongkoskirim_rp</b></td></tr>      
+      <tr><td colspan=4 align=right>Grand Total        Rp. : </td><td align=right><b>$grandtotal_rp</b></td></tr>
+      </table>
+      <br>";
+
+  // tampilkan data kustomer
+  echo "<table class='table' border='1' cellpadding='10' cellspacing='0'> <thead class='thead-dark'>
+        <tr><th colspan='2'>Data Kustomer</th></tr> </thead>
+        <tr><td>Nama Kustomer</td><td> : $r[nama_lengkap]</td></tr>
+        <tr><td>Alamat Pengiriman</td><td> : $r[alamat]</td></tr>
+        <tr><td>No. Telpon/HP</td><td> : $r[telpon]</td></tr>
+        <tr><td>Email</td><td> : $r[email]</td></tr>
+        </table>";
+        ?>
           </div>
-      </div><!-- /.container-fluid -->
-    </section>
+        </div><!-- /.container-fluid -->
     <!-- /.content -->
   </div>
