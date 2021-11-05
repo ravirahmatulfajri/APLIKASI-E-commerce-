@@ -44,10 +44,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'order') {
             include "pages/order/order.php";
-        } else if ($_GET['pages'] == 'tambah_order') {
-            include "pages/order/form_tambah.php";
-        } else if ($_GET['pages'] == 'edit_order') {
-            include "pages/order/form_edit.php";
+        } else if ($_GET['pages'] == 'aksi_order') {
+            include "pages/order/aksi.php";
 
         } else if ($_GET['pages'] == 'kategori_barang') {
             include "pages/kategori_barang/kategori_barang.php";

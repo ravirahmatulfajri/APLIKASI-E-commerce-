@@ -64,7 +64,7 @@
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">MAIN</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="main.php?pages=order" class="dropdown-item">Order</a></li>
+              <li><a href="main.php?pages=order&act=" class="dropdown-item">Order</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -114,7 +114,7 @@
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="logout.php">
-             <button>Log Out</button>
+             <button class="btn btn-warning">Log Out</button>
           </a>
         </li>
         <li class="nav-item">
