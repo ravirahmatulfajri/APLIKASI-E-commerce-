@@ -3,6 +3,8 @@ include "../lib/config.php";
 include "../lib/koneksi.php";
 include "../lib/fungsi_seo.php";
 include "../lib/fungsi_thumb.php";
+include "../lib/fungsi_combobox.php";
+include "../lib/library.php";
 session_start();
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
     include "index.php";
@@ -18,14 +20,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'messages') {
             include "pages/messages/messages.php";
 
-        } else if ($_GET['pages'] == 'laporan_produk') {
-            include "pages/guest/produk.php";
-        } else if ($_GET['pages'] == 'produk_custom') {
-            include "pages/guest/produk_custom.php";
-        } else if ($_GET['pages'] == 'laporan_order') {
-            include "pages/guest/order.php";
-        } else if ($_GET['pages'] == 'order_custom') {
-            include "pages/guest/order_custom.php";
+        } else if ($_GET['pages'] == 'laporan') {
+            include "pages/laporan/laporan.php";
 
         } else if ($_GET['pages'] == 'profil') {
             include "pages/profil/form_edit.php";

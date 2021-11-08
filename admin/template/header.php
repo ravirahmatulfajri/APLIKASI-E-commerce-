@@ -65,6 +65,7 @@
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">MAIN</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               <li><a href="main.php?pages=order&act=" class="dropdown-item">Order</a></li>
+              <li><a href="main.php?pages=laporan" class="dropdown-item">Laporan</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
