@@ -91,6 +91,9 @@
                   <li>
                     <a tabindex="-1" href="main.php?pages=cara_beli" class="dropdown-item">Cara Beli</a>
                   </li>
+                  <li>
+                    <a tabindex="-1" href="main.php?pages=banner&act=" class="dropdown-item">Banner</a>
+                  </li>
                 </ul>
               </li>
               <!-- End Level two -->

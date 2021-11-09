@@ -4,6 +4,7 @@ include "../lib/koneksi.php";
 include "../lib/fungsi_seo.php";
 include "../lib/fungsi_thumb.php";
 include "../lib/fungsi_combobox.php";
+include "../lib/fungsi_indotgl.php";
 include "../lib/library.php";
 session_start();
 if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
@@ -52,6 +53,11 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/produk/produk.php";
         } else if ($_GET['pages'] == 'aksi_produk') {
             include "pages/produk/aksi.php";
+
+        } else if ($_GET['pages'] == 'banner') {
+            include "pages/banner/banner.php";
+        } else if ($_GET['pages'] == 'aksi_banner') {
+            include "pages/banner/aksi.php";
 
         } else if ($_GET['pages'] == 'test') {
             include "pages/home/home2.php";
