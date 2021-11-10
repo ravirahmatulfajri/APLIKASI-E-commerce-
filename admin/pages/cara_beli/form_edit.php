@@ -34,7 +34,7 @@
                 <input type=hidden name=id value="<?= $s['id_modul'] ?>">
                 <div class="card-body">
                   <div class="form-group row">
-                    <div class="col-sm-20">
+                    <div class="col-sm">
                       <textarea id="summernote" rows="20" cols="20" type="text" class="form-control" name="static_content" placeholder="Isi Site"><?= $s['static_content'] ?></textarea>
                     </div>
                   </div>

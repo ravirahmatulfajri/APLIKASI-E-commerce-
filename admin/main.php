@@ -54,6 +54,11 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'aksi_produk') {
             include "pages/produk/aksi.php";
 
+        } else if ($_GET['pages'] == 'pass') {
+            include "pages/password/password.php";
+        } else if ($_GET['pages'] == 'aksi_pass') {
+            include "pages/password/aksi.php";
+
         } else if ($_GET['pages'] == 'banner') {
             include "pages/banner/banner.php";
         } else if ($_GET['pages'] == 'aksi_banner') {
