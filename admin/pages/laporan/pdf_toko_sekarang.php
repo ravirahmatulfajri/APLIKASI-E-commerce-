@@ -1,15 +1,10 @@
 <?php
-session_start();
-if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])){
-  echo "<link href='style.css' rel='stylesheet' type='text/css'>
- <center>Untuk mengakses modul, Anda harus login <br>";
-  echo "<a href=../../index.php><b>LOGIN</b></a></center>";
-}
-else{
 error_reporting(0);
 
 include "class.ezpdf.php";
 include "rupiah.php";
+include "../../../lib/config.php";
+include "../../../lib/koneksi.php";
   
 $pdf = new Cezpdf();
  
@@ -84,6 +79,5 @@ else{
   $skrg=date('d-M-Y');
   echo "Tidak ada transaksi/order pada Tanggal <b>$skrg</b><br /><br />
        <input type=button value=Kembali onclick=self.history.back()>";
-}
 }
 ?>

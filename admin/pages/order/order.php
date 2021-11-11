@@ -41,8 +41,6 @@ switch($_GET['act']){
                   </thead>
                   <tbody>
                     <?php
-                            include "../lib/config.php";
-                            include "../lib/koneksi.php";
                             $query = mysqli_query($koneksi, "SELECT * FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer ORDER BY id_orders");
                             $i=1;
                             while($o=mysqli_fetch_array($query)){                              
@@ -107,7 +105,7 @@ switch($_GET['act']){
     $r    = mysqli_fetch_array($edit);
     
     if ($r['status_order']=='Baru'){
-        $pilihan_status = array('Baru', 'Lunas');
+        $pilihan_status = array('Baru', 'Lunas', 'Batal');
     }
     elseif ($r['status_order']=='Lunas'){
         $pilihan_status = array('Lunas', 'Batal');    

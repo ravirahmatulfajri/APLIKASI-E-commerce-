@@ -1,15 +1,8 @@
 <?php
-error_reporting(0);
-session_start();
-if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])){
-  echo "<link href='style.css' rel='stylesheet' type='text/css'>
- <center>Untuk mengakses modul, Anda harus login <br>";
-  echo "<a href=../../index.php><b>LOGIN</b></a></center>";
-}
-else{
-
 include "class.ezpdf.php";
 include "rupiah.php";
+include "../../../lib/config.php";
+include "../../../lib/koneksi.php";
   
 $pdf = new Cezpdf();
  
@@ -87,6 +80,5 @@ else{
   $m=$_POST['tgl_mulai'].'-'.$_POST['bln_mulai'].'-'.$_POST['thn_mulai'];
   $s=$_POST['tgl_selesai'].'-'.$_POST['bln_selesai'].'-'.$_POST['thn_selesai'];
   echo "Tidak ada transaksi/order pada Tanggal $m s/d $s";
-}
 }
 ?>

@@ -1,9 +1,4 @@
 <?php 
-session_start();
-if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
-  echo "<center>Untuk mengakses modul, Anda harus login dulu <br>";
-  echo "<a href=../../index.php><b>LOGIN</b></a></center>";
-} else {
 	if ($_POST['status_order']=='Lunas'){ 
     
 		// Update untuk mengurangi stok 
@@ -18,7 +13,7 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 		// Update status order
 		mysqli_query($koneksi,"UPDATE orders SET status_order='$_POST[status_order]' where id_orders='$_POST[id_order]'");
   
-		echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=order&act=detailorder&id_order=$_POST[id_order]';</script>";
+		echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=home';</script>";
 	  }	  
 		elseif($_POST['status_order']=='Batal'){
 		  // Update untuk menambah stok
@@ -30,11 +25,10 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
 		  // Update status order Batal
 		mysqli_query($koneksi,"UPDATE orders SET status_order='$_POST[status_order]' where id_orders='$_POST[id_order]'");
   
-		  echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=order&act=detailorder&id_order=$_POST[id_order]';</script>";
+		  echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=home';</script>";
 		}
 	  else{
 		mysqli_query($koneksi,"UPDATE orders SET status_order='$_POST[status_order]' where id_orders='$_POST[id_order]'");
-		echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=order&act=detailorder&id_order=$_POST[id_order]';</script>";
-	  }
-	}				
+		echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=home';</script>";
+	  }			
 ?>

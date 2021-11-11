@@ -25,13 +25,7 @@
               </div>
               <div class="card-body">
 <?php
- if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])){
-  echo "<link href='style.css' rel='stylesheet' type='text/css'>
- <center>Untuk mengakses modul, Anda harus login <br>";
-  echo "<a href=../../index.php><b>LOGIN</b></a></center>";
-}
-else{
-   echo "<input type=button value='Laporan Hari Ini' 
+echo "<input type=button value='Laporan Hari Ini' 
           onclick=\"window.location.href='pages/laporan/pdf_toko_sekarang.php';\"><br>
 
           <form method=POST action='pages/laporan/pdf_toko.php'>
@@ -52,7 +46,6 @@ else{
           <tr><td colspan=2><input type=submit value=Proses></td></tr>
           </table>
           </form>";
-}
 ?>
           </div>
         </div><!-- /.container-fluid -->
