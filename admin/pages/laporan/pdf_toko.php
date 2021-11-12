@@ -33,8 +33,8 @@ $pdf->closeObject();
 $pdf->addObject($all, 'all');
 
 // Baca input tanggal yang dikirimkan user
-$mulai=$_POST['thn_mulai'].'-'.$_POST['bln_mulai'].'-'.$_POST['tgl_mulai'];
-$selesai=$_POST['thn_selesai'].'-'.$_POST['bln_selesai'].'-'.$_POST['tgl_selesai'];
+$mulai=$_POST['tanggal'];
+$selesai=$_POST['tanggal1'];
 
 // Query untuk merelasikan kedua tabel di filter berdasarkan tanggal
 $sql = mysqli_query($koneksi,"SELECT orders.id_orders as faktur,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal,
@@ -77,8 +77,8 @@ $pdf->ezStartPageNumbers(320, 15, 8);
 $pdf->ezStream();
 }
 else{
-  $m=$_POST['tgl_mulai'].'-'.$_POST['bln_mulai'].'-'.$_POST['thn_mulai'];
-  $s=$_POST['tgl_selesai'].'-'.$_POST['bln_selesai'].'-'.$_POST['thn_selesai'];
+  $m=$_POST['tanggal'];
+  $s=$_POST['tanggal1'];
   echo "Tidak ada transaksi/order pada Tanggal $m s/d $s";
 }
 ?>

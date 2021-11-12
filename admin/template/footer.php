@@ -97,28 +97,6 @@
     });
   });
 </script> 
-<script src="asset/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Page specific script -->
-<!-- InputMask -->
-<script src="asset/plugins/moment/moment.min.js"></script>
-<script src="asset/plugins/inputmask/jquery.inputmask.min.js"></script>
-<script>
-  $(function () {
-    //Datetime picker
-    $('#reservationdatetime').datetimepicker({ 
-      format: 'DD-MM-YYYY HH:mm:ss'
-    });
-    $('#reservationdatetime1').datetimepicker({ 
-      format: 'DD-MM-YYYY HH:mm:ss'
-    });
-    $('#reservationdate').datetimepicker({
-        format: 'DD-MM-YYYY'
-    });
-    $('#reservationdate1').datetimepicker({
-        format: 'DD-MM-YYYY'
-    });
-  })
-</script>
 
 
 <script>
@@ -403,6 +381,18 @@
 <script src="asset/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="asset/dist/js/demo.js"></script>
+
+<script src="asset/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script>
+  $(function () {
+    $('#reservationdate').datetimepicker({
+        format: 'Y-M-D'
+    });
+    $('#reservationdate1').datetimepicker({
+        format: 'Y-M-D'
+    });
+  })
+</script>
 
 </body>
 </html>

@@ -31,16 +31,22 @@ echo "<input type=button value='Laporan Hari Ini'
           <form method=POST action='pages/laporan/pdf_toko.php'>
           <table  border='1' cellpadding='10' cellspacing='0'>
           <tr><td colspan=2><b>Laporan Per Periode</b></td></tr>
-          <tr><td>Dari Tanggal</td><td> : ";        
-          combotgl(1,31,'tgl_mulai',$tgl_skrg);
-          combonamabln(1,12,'bln_mulai',$bln_sekarang);
-          combothn(2000,$thn_sekarang,'thn_mulai',$thn_sekarang);
+          <tr><td>Dari Tanggal</td><td>
+          <div class='input-group date' id='reservationdate' data-target-input='nearest'>
+              <input type='text' class='form-control datetimepicker-input' data-target='#reservationdate' name='tanggal' placeholder='DD-MM-YYYY'/>
+              <div class='input-group-append' data-target='#reservationdate' data-toggle='datetimepicker'>
+                  <div class='input-group-text'><i class='fa fa-calendar'></i></div>
+              </div>
+          </div></td>
 
-    echo "</td></tr>
-          <tr><td>s/d Tanggal</td><td> : ";
-          combotgl(1,31,'tgl_selesai',$tgl_skrg);
-          combonamabln(1,12,'bln_selesai',$bln_sekarang);
-          combothn(2000,$thn_sekarang,'thn_selesai',$thn_sekarang);
+          </td></tr>
+          <tr><td>s/d Tanggal</td><td>
+          <div class='input-group date' id='reservationdate1' data-target-input='nearest'>
+              <input type='text' class='form-control datetimepicker-input' data-target='#reservationdate1' name='tanggal1' placeholder='DD-MM-YYYY'/>
+              <div class='input-group-append' data-target='#reservationdate1' data-toggle='datetimepicker'>
+                  <div class='input-group-text'><i class='fa fa-calendar'></i></div>
+              </div>
+          </div></td>";
 
     echo "</td></tr>
           <tr><td colspan=2><input type=submit value=Proses></td></tr>
