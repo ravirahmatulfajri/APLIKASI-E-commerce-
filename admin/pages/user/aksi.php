@@ -1,10 +1,4 @@
 <?php 
-session_start();
-if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
-  echo "<center>Untuk mengakses modul, Anda harus login dulu <br>";
-  echo "<a href=../../index.php><b>LOGIN</b></a></center>";
-} else {
-
    $act=$_GET['act'];
    if ($act=='hapus'){
       $username=$_GET['username'];
@@ -32,5 +26,4 @@ if (empty($_SESSION['username']) AND empty($_SESSION['passuser'])) {
          echo "<script> alert('Data user Gagal Masuk'); window.location = '$admin_url'+'main.php?pages=user&act=tambahkategori';</script>";
       }
    }
-}
 ?>

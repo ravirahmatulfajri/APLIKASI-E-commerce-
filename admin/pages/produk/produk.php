@@ -9,12 +9,12 @@ switch($_GET['act']){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Barang</h1>
+            <h1 class="m-0">Produk</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
-              <li class="breadcrumb-item active">Nama Barang</li>
+              <li class="breadcrumb-item active">Nama Produk</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -24,7 +24,7 @@ switch($_GET['act']){
 <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Daftar Nama Barang</h3>
+                <h3 class="card-title">Daftar Nama Produk</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -33,6 +33,7 @@ switch($_GET['act']){
                     <tr>
                       <th style="width: 20px">#</th>
                       <th>Nama Produk</th>
+                      <th>Gambar Produk</th>
                       <th>Berat</th>
                       <th>Harga</th>
                       <th>Diskon</th>
@@ -52,6 +53,7 @@ switch($_GET['act']){
                     <tr>
                       <td><?= $i ?>.</td>
                       <td><?= $k['nama_produk'] ?></td>
+                      <td><img src=../foto_produk/<?= $k['gambar'] ?>></td>
                       <td><?= $k['berat'] ?>Kg</td>
                       <td>Rp. <?= number_format($k['harga'],0,',','.'); ?></td>
                       <td><?= $k['diskon'] ?>%</td>
@@ -94,12 +96,12 @@ switch($_GET['act']){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Barang</h1>
+            <h1 class="m-0">Produk</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
-              <li class="breadcrumb-item active">Nama Barang</li>
+              <li class="breadcrumb-item active">Nama Produk</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -110,7 +112,7 @@ switch($_GET['act']){
 <!-- Horizontal Form -->
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Form Tambah Barang</h3>
+                <h3 class="card-title">Form Tambah Produk</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -165,7 +167,7 @@ switch($_GET['act']){
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Deskripsi</label>
                     <div class="col-sm-10">
-                      <textarea id="summernote" rows="20" cols="20" type="text" class="form-control" name="deskripsi" placeholder="Deskripsi Barang"></textarea>
+                      <textarea id="summernote" rows="20" cols="20" type="text" class="form-control" name="deskripsi" placeholder="Deskripsi Produk"></textarea>
                     </div>
                   </div>
                   <div class="form-group row">
@@ -278,7 +280,7 @@ case "editproduk":?>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Deskripsi</label>
                     <div class="col-sm-10">
-                      <textarea id="summernote" rows="20" cols="20" type="text" class="form-control" name="deskripsi" value="<?= $k['deskripsi'] ?>" placeholder="Deskripsi Barang"><?= $k['deskripsi'] ?></textarea>
+                      <textarea id="summernote" rows="20" cols="20" type="text" class="form-control" name="deskripsi" value="<?= $k['deskripsi'] ?>" placeholder="Deskripsi Produk"><?= $k['deskripsi'] ?></textarea>
                     </div>
                   </div>
                   <div class="form-group row">

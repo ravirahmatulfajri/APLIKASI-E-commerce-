@@ -120,6 +120,12 @@ switch($_GET['act']){
                 $pilihan .= "<option value=$status";
                 $pilihan .= ">$status</option>\r\n";
                 }
+              $pilihan_role = array('admin', 'user');
+              $role = '';
+              foreach ($pilihan_role as $a) {
+                $role .= "<option value=$a";
+                $role .= ">$a</option>\r\n";
+                }
               ?>
               <form method="post" action="main.php?pages=aksi_user&act=input" class="form-horizontal">
                 <div class="card-body">
@@ -156,7 +162,7 @@ switch($_GET['act']){
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Role</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="level" placeholder="Role">
+                    <select name=level class="form-control"><?php echo $role; ?></select>
                     </div>
                   </div>
                   <div class="form-group row">

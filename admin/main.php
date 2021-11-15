@@ -18,8 +18,10 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'home') {
             include "pages/home/home.php";
 
-        } else if ($_GET['pages'] == 'messages') {
-            include "pages/messages/messages.php";
+        } else if ($_GET['pages'] == 'testi') {
+            include "pages/testi/testi.php";
+        } else if ($_GET['pages'] == 'aksi_testi') {
+            include "pages/testi/aksi.php";
 
         } else if ($_GET['pages'] == 'laporan') {
             include "pages/laporan/laporan.php";
@@ -54,6 +56,11 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'aksi_produk') {
             include "pages/produk/aksi.php";
 
+        } else if ($_GET['pages'] == 'artikel') {
+            include "pages/artikel/artikel.php";
+        } else if ($_GET['pages'] == 'aksi_artikel') {
+            include "pages/artikel/aksi.php";
+
         } else if ($_GET['pages'] == 'pass') {
             include "pages/password/password.php";
         } else if ($_GET['pages'] == 'aksi_pass') {
@@ -82,8 +89,8 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'home') {
             include "pages/home/home.php";
 
-        } else if ($_GET['pages'] == 'messages') {
-            include "pages/messages/messages.php";
+        } else if ($_GET['pages'] == 'testi') {
+            include "pages/testi/testi.php";
 
         } else if ($_GET['pages'] == 'laporan_produk') {
             include "pages/guest/produk.php";

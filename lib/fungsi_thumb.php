@@ -38,6 +38,15 @@ function UploadBanner($fupload_name){
   move_uploaded_file($_FILES["fupload"]["tmp_name"], $vfile_upload);
 }
 
+function UploadArtikel($fupload_name){
+  //direktori artikel
+  $vdir_upload = "../foto_artikel/";
+  $vfile_upload = $vdir_upload . $fupload_name;
+
+  //Simpan gambar dalam ukuran sebenarnya
+  move_uploaded_file($_FILES["fupload"]["tmp_name"], $vfile_upload);
+}
+
 function UploadFile($fupload_name){
   //direktori file
   $vdir_upload = "../files/";

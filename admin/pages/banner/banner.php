@@ -30,13 +30,14 @@ switch($_GET['act']){
                   <div class='card-body'>
           <input type=button class='btn btn-success' value='Tambah Banner' onclick=location.href='main.php?pages=banner&act=tambahbanner'>
           <table class='table' border='1' cellpadding='10' cellspacing='0'> <thead class='thead-dark'>
-          <tr><th>no</th><th>judul</th><th>url</th><th>tgl. posting</th><th>aksi</th></tr></thead>";
+          <tr><th>no</th><th>judul</th><th>Gambar</th><th>url</th><th>tgl. posting</th><th>aksi</th></tr></thead>";
     $tampil=mysqli_query($koneksi,"SELECT * FROM banner ORDER BY id_banner DESC");
     $no=1;
     while ($r=mysqli_fetch_array($tampil)){
       $tgl=tgl_indo($r['tgl_posting']);
       echo "<tr><td>$no</td>
                 <td>$r[judul]</td>
+                <td><img src=../foto_banner/$r[gambar]></td>
                 <td><a href=$r[url] target=_blank>$r[url]</a></td>
                 <td>$tgl</td>
                 <td><a href=main.php?pages=banner&act=editbanner&id=$r[id_banner]>Edit</a> | 
