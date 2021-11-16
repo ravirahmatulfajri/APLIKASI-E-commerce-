@@ -48,7 +48,7 @@ switch($_GET['act']){
                       <td><?= $i ?>.</td>
                       <td><?= $k['judul'] ?></td>
                       <td><?= $k['isi_artikel'] ?></td>
-                      <td><img src=../foto_artikel/<?= $k['gambar'] ?>></td>
+                      <td><img src=../foto_artikel/small_<?= $k['gambar'] ?>></td>
                       <td>
                             <div class="input-group-btn pb-1">
                               <a href="<?= $admin_url; ?>main.php?pages=artikel&act=editartikel&id_artikel=<?= $k['id_artikel']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
