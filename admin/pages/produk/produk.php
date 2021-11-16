@@ -22,13 +22,13 @@ switch($_GET['act']){
     </div>
     <!-- /.content-header -->
 <div class="col-12">
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Daftar Nama Produk</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table">
+                <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">#</th>

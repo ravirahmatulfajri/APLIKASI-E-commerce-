@@ -1,5 +1,5 @@
 <?php
-$r=mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM admins"));
+$r=mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM admins where username='$_SESSION[username]'"));
 
 $pass_lama=md5($_POST['pass_lama']);
 $pass_baru=md5($_POST['pass_baru']);
@@ -13,7 +13,7 @@ else{
 if ($pass_lama==$r['password']){
   // Pastikan bahwa password baru yang dimasukkan sebanyak dua kali sudah cocok
   if ($_POST['pass_baru']==$_POST['pass_ulangi']){
-    mysqli_query($koneksi,"UPDATE admins SET password = '$pass_baru'");
+    mysqli_query($koneksi,"UPDATE admins SET password = '$pass_baru' where username='$_SESSION[username]'");
     echo"<script> alert('Data Password Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=home'; </script>";
   }
   else{

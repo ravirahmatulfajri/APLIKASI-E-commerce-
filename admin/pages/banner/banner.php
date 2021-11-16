@@ -23,7 +23,7 @@ switch($_GET['act']){
         <!-- /.content-header -->
         <div class='col-12'>
     <!-- Horizontal Form -->
-                <div class='card'>
+                <div class='card card-info'>
                   <div class='card-header'>
                     <h3 class='card-title'>Daftar Banner</h3>
                   </div>

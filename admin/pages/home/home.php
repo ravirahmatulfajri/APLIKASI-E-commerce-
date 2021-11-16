@@ -74,46 +74,13 @@
           <!-- ./col -->
         </div>
         <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Laporan</h3>
-                <form method=POST action='pages/laporan/pdf_toko.php'>
-                <div style="display: flex; justify-content: flex-end">
-                <table>
-                    <tr>
-                      <td align="left">
-                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="tanggal" placeholder="DD-MM-YYYY"/>
-                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                      </td>
-                      <td><div>s/d</div></td>
-                      <td align="left">
-                        <div class="input-group date" id="reservationdate1" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate1" name="tanggal1" placeholder="DD-MM-YYYY"/>
-                            <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                            </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-                <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">
-                  <button type="submit" value=Proses class="btn btn-warning">Tampilkan </button> 
-                </div>
-                </form>
-              </div>
-            </div>
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Daftar Barang Order Baru</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table">
+                <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>Nama Kustomer</th>

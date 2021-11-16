@@ -22,19 +22,20 @@
     </div>
     <!-- /.content-header -->
 <div class="col-12">
-            <div class="card">
+            <div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Daftar Testimoni</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table">
+                <table class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th style="width: 20px">#</th>
                       <th>Tangggal</th>
                       <th>Nama Pengirim</th>
                       <th>Isi Pesan</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -50,7 +51,7 @@
                       <td><?= $m['isi'] ?></td>
                       <td>
                         <div class="input-group-btn">
-                          <a href="<?= $admin_url ?>main.php?pages=aksi_testi?id_testi=<?= $m['id_testi']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
+                          <a href="<?= $admin_url ?>main.php?pages=aksi_testi?id_testi=<?= $m['id_testi']; ?>" class="btn btn-danger">HAPUS</a>
                         </div>
                       </td>
                     </tr>

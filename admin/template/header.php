@@ -37,8 +37,6 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
         <?php
-          include "../lib/config.php";
-          include "../lib/koneksi.php";
           if ($_GET) {
             $page = $_GET['pages'];
             }
@@ -64,7 +62,7 @@
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">MAIN</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="main.php?pages=order&act=" class="dropdown-item">Order</a></li>
+              <li><a href="main.php?pages=laporan&act=" class="dropdown-item">Laporan</a></li>
               <li><a href="main.php?pages=testi" class="dropdown-item">Testimoni</a></li>
             </ul>
           </li>
