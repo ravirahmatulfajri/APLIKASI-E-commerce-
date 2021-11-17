@@ -100,7 +100,9 @@ switch($_GET['act']){
     
   case "custom":
     $tgl = $_POST['tanggal'];
-    $tgl1 = $_POST['tanggal1'];?>
+    $tgl1 = $_POST['tanggal1'];
+    $tanggal = date('Y-m-d', strtotime($tgl));
+    $tanggal1 = date('Y-m-d', strtotime($tgl1));?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -155,6 +157,11 @@ switch($_GET['act']){
                     <button type="submit" value=Proses class="btn btn-warning">Tampilkan </button> 
                   </div>
                   </form>
+                  <div>
+                    <a class="nav-link" href="pages/laporan/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
+                      <button class="btn btn-warning">Cetak</button>
+                    </a>
+                  </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
@@ -169,7 +176,7 @@ switch($_GET['act']){
                     </thead>
                     <tbody>
                       <?php
-                              $query = mysqli_query($koneksi, "SELECT * FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer and orders.status_order='lunas' and orders.tgl_order BETWEEN '$tgl' AND '$tgl1' ORDER BY id_orders");
+                              $query = mysqli_query($koneksi, "SELECT * FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer and orders.status_order='lunas' and orders.tgl_order BETWEEN '$tanggal' AND '$tanggal1' ORDER BY id_orders");
                               $i=1;
                               while($o=mysqli_fetch_array($query)){                              
                             ?>

@@ -18,7 +18,7 @@ $pdf->addJpegFromFile('logo.jpg',20,800,69);
 
 // Teks di tengah atas untuk judul header
 $pdf->addText(220, 820, 16,'<b>Laporan Penjualan</b>');
-$pdf->addText(200, 800, 14,'<b>Toko Handphone Lokomedia</b>');
+$pdf->addText(240, 800, 14,'<b>Plaza Agro UGM</b>');
 // Garis atas untuk header
 $pdf->line(10, 795, 578, 795);
 
@@ -33,8 +33,8 @@ $pdf->closeObject();
 $pdf->addObject($all, 'all');
 
 // Baca input tanggal yang dikirimkan user
-$mulai=$_POST['tanggal'];
-$selesai=$_POST['tanggal1'];
+$mulai=$_GET['tanggal'];
+$selesai=$_GET['tanggal1'];
 
 // Query untuk merelasikan kedua tabel di filter berdasarkan tanggal
 $sql = mysqli_query($koneksi,"SELECT orders.id_orders as faktur,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal,
@@ -77,8 +77,8 @@ $pdf->ezStartPageNumbers(320, 15, 8);
 $pdf->ezStream();
 }
 else{
-  $m=$_POST['tanggal'];
-  $s=$_POST['tanggal1'];
+  $m=$_GET['tanggal'];
+  $s=$_GET['tanggal1'];
   echo "Tidak ada transaksi/order pada Tanggal $m s/d $s";
 }
 ?>

@@ -386,10 +386,10 @@
 <script>
   $(function () {
     $('#reservationdate').datetimepicker({
-        format: 'Y-M-D'
+        format: 'DD-MM-YYYY'
     });
     $('#reservationdate1').datetimepicker({
-        format: 'Y-M-D'
+        format: 'DD-MM-YYYY'
     });
   })
 </script>

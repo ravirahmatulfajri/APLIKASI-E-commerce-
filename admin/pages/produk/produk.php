@@ -53,7 +53,7 @@ switch($_GET['act']){
                     <tr>
                       <td><?= $i ?>.</td>
                       <td><?= $k['nama_produk'] ?></td>
-                      <td><img src=../foto_produk/small_<?= $k['gambar'] ?>></td>
+                      <td><img src=../foto_produk/<?= $k['gambar'] ?>></td>
                       <td><?= $k['berat'] ?>Kg</td>
                       <td>Rp. <?= number_format($k['harga'],0,',','.'); ?></td>
                       <td><?= $k['diskon'] ?>%</td>
