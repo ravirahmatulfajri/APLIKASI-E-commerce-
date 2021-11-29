@@ -102,7 +102,9 @@ switch($_GET['act']){
     $tgl = $_POST['tanggal'];
     $tgl1 = $_POST['tanggal1'];
     $tanggal = date('Y-m-d', strtotime($tgl));
-    $tanggal1 = date('Y-m-d', strtotime($tgl1));?>
+    $tanggal1 = date('Y-m-d', strtotime($tgl1));
+    $tangl = date('d-F-Y', strtotime($tgl));
+    $tangl1 = date('d-F-Y', strtotime($tgl1));?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -151,7 +153,7 @@ switch($_GET['act']){
                     </table>
                   </div>
                   <div>
-                    <h3 class="card-title">Periode <?= $tgl ?> s/d <?= $tgl1 ?></h3>
+                    <h3 class="card-title">Periode <?= $tangl ?> s/d <?= $tangl1 ?></h3>
                   </div>
                   <div class="input-group-btn mt-2" style="display: flex; justify-content: flex-end">
                     <button type="submit" value=Proses class="btn btn-warning">Tampilkan </button> 

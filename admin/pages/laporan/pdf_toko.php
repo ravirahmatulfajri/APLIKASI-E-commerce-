@@ -16,11 +16,21 @@ $all = $pdf->openObject();
 $pdf->setStrokeColor(0, 0, 0, 1);
 $pdf->addJpegFromFile('logo.jpg',20,800,69);
 
+// Menampilkan filter
+$tgl = $_GET['tanggal'];
+$tgl1 = $_GET['tanggal1'];
+$tangl = date('d-F-Y', strtotime($tgl));
+$tangl1 = date('d-F-Y', strtotime($tgl1));
+
 // Teks di tengah atas untuk judul header
 $pdf->addText(220, 820, 16,'<b>Laporan Penjualan</b>');
 $pdf->addText(240, 800, 14,'<b>Plaza Agro UGM</b>');
+
+// Teks filter 
+$pdf->addText(20, 780, 10,'<b>Periode '. $tangl .' s/d '.  $tangl1 .'</b>');
+
 // Garis atas untuk header
-$pdf->line(10, 795, 578, 795);
+$pdf->line(10, 775, 578, 775);
 
 // Garis bawah untuk footer
 $pdf->line(10, 50, 578, 50);
