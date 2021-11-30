@@ -79,6 +79,9 @@ switch($_GET['act']){
                       <td>
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=laporan&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
+                              <a href="./pages/laporan/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
+                                <button class="btn btn-secondary">Cetak Invoice</button>
+                              </a>
                             </div>
                           </td>
                     </tr>
@@ -189,6 +192,9 @@ switch($_GET['act']){
                         <td>
                               <div class="input-group-btn">
                                 <a href="<?= $admin_url; ?>main.php?pages=laporan&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
+                                <a href="./pages/laporan/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
+                                  <button class="btn btn-secondary">Cetak Invoice</button>
+                                </a>
                               </div>
                             </td>
                       </tr>
