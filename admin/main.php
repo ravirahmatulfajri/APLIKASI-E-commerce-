@@ -25,8 +25,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
 
         } else if ($_GET['pages'] == 'laporan') {
             include "pages/laporan/laporan.php";
-        } else if ($_GET['pages'] == 'cetak') {
-            include "pages/laporan/pdf_toko.php";
+
+        } else if ($_GET['pages'] == 'batal') {
+            include "pages/batal/laporan.php";
 
         } else if ($_GET['pages'] == 'profil') {
             include "pages/profil/form_edit.php";

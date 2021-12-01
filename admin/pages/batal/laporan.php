@@ -15,7 +15,7 @@ switch($_GET['act']){
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
-              <li class="breadcrumb-item active">Laporan Order Lunas</li>
+              <li class="breadcrumb-item active">Laporan Order Batal</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,8 +25,8 @@ switch($_GET['act']){
 <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Daftar Order Lunas</h3>
-                <form method=POST action='<?= $admin_url; ?>main.php?pages=laporan&act=custom'>
+                <h3 class="card-title">Daftar Order Batal</h3>
+                <form method=POST action='<?= $admin_url; ?>main.php?pages=batal&act=custom'>
                 <div style="display: flex; justify-content: flex-end">
                 <table>
                     <tr>
@@ -68,7 +68,7 @@ switch($_GET['act']){
                   </thead>
                   <tbody>
                     <?php
-                            $query = mysqli_query($koneksi, "SELECT id_orders,nama_lengkap,jam_order,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer and orders.status_order='lunas' ORDER BY id_orders");
+                            $query = mysqli_query($koneksi, "SELECT id_orders,nama_lengkap,jam_order,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer and orders.status_order='Batal' ORDER BY id_orders");
                             $i=1;
                             while($o=mysqli_fetch_array($query)){                              
                           ?>
@@ -78,10 +78,7 @@ switch($_GET['act']){
                       <td><?= $o['jam_order'] ?></td>
                       <td>
                             <div class="input-group-btn">
-                              <a href="<?= $admin_url; ?>main.php?pages=laporan&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
-                              <a href="./pages/laporan/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
-                                <button class="btn btn-secondary">Cetak Invoice</button>
-                              </a>
+                              <a href="<?= $admin_url; ?>main.php?pages=batal&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
                             </div>
                           </td>
                     </tr>
@@ -120,7 +117,7 @@ switch($_GET['act']){
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
-                <li class="breadcrumb-item active">Laporan Order Lunas</li>
+                <li class="breadcrumb-item active">Laporan Order Batal</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -130,8 +127,8 @@ switch($_GET['act']){
   <div class="col-12">
               <div class="card card-info">
                 <div class="card-header">
-                  <h3 class="card-title">Daftar Order Lunas</h3>
-                  <form method=POST action='<?= $admin_url; ?>main.php?pages=laporan&act=custom'>
+                  <h3 class="card-title">Daftar Order Batal</h3>
+                  <form method=POST action='<?= $admin_url; ?>main.php?pages=batal&act=custom'>
                   <div style="display: flex; justify-content: flex-end">
                   <table>
                       <tr>
@@ -163,7 +160,7 @@ switch($_GET['act']){
                   </div>
                   </form>
                   <div>
-                    <a class="nav-link" href="pages/laporan/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
+                    <a class="nav-link" href="pages/batal/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
                       <button class="btn btn-warning">Cetak</button>
                     </a>
                   </div>
@@ -181,7 +178,7 @@ switch($_GET['act']){
                     </thead>
                     <tbody>
                       <?php
-                              $query = mysqli_query($koneksi, "SELECT id_orders,nama_lengkap,jam_order,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer and orders.status_order='lunas' and orders.tgl_order BETWEEN '$tanggal' AND '$tanggal1' ORDER BY id_orders");
+                              $query = mysqli_query($koneksi, "SELECT id_orders,nama_lengkap,jam_order,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal FROM orders,kustomer WHERE orders.id_kustomer=kustomer.id_kustomer and orders.status_order='Batal' and orders.tgl_order BETWEEN '$tanggal' AND '$tanggal1' ORDER BY id_orders");
                               $i=1;
                               while($o=mysqli_fetch_array($query)){                              
                             ?>
@@ -191,10 +188,7 @@ switch($_GET['act']){
                         <td><?= $o['jam_order'] ?></td>
                         <td>
                               <div class="input-group-btn">
-                                <a href="<?= $admin_url; ?>main.php?pages=laporan&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
-                                <a href="./pages/laporan/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
-                                  <button class="btn btn-secondary">Cetak Invoice</button>
-                                </a>
+                                <a href="<?= $admin_url; ?>main.php?pages=batal&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
                               </div>
                             </td>
                       </tr>
