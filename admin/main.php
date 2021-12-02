@@ -29,6 +29,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'batal') {
             include "pages/batal/laporan.php";
 
+        } else if ($_GET['pages'] == 'masuk') {
+            include "pages/masuk/laporan.php";
+
         } else if ($_GET['pages'] == 'profil') {
             include "pages/profil/form_edit.php";
         } else if ($_GET['pages'] == 'aksi_profil') {
