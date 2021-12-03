@@ -26,8 +26,14 @@
 		mysqli_query($koneksi,"UPDATE orders SET status_order='$_POST[status_order]' where id_orders='$_POST[id_order]'");
   
 		  echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=home';</script>";
-		}
-	  else{
+	  }
+		elseif($_GET['status_order']=='Kirim'){
+		// Update status order Kirim
+		mysqli_query($koneksi,"UPDATE orders SET status_order='$_GET[status_order]' where id_orders='$_GET[id_order]'");
+
+		echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=kirim&act=';</script>";
+	  }
+		else{
 		mysqli_query($koneksi,"UPDATE orders SET status_order='$_POST[status_order]' where id_orders='$_POST[id_order]'");
 		echo "<script> alert('Data order Berhasil Di ubah'); window.location = '$admin_url'+'main.php?pages=home';</script>";
 	  }			

@@ -82,6 +82,9 @@ switch($_GET['act']){
                               <a href="./pages/laporan/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
                                 <button class="btn btn-secondary">Cetak Invoice</button>
                               </a>
+                              <a href="<?= $admin_url; ?>main.php?pages=aksi_order&status_order=Kirim&id_order=<?= $o['id_orders']; ?>">
+                                <button class="btn btn-success">Kirim Orderan</button>
+                              </a>
                             </div>
                           </td>
                     </tr>

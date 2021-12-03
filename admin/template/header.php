@@ -63,8 +63,18 @@
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">MAIN</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
               <li><a href="main.php?pages=masuk&act=" class="dropdown-item">Masuk</a></li>
-              <li><a href="main.php?pages=laporan&act=" class="dropdown-item">Lunas</a></li>
               <li><a href="main.php?pages=batal&act=" class="dropdown-item">Batal</a></li>
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Lunas</a>
+                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                  <li>
+                    <a tabindex="-1" href="main.php?pages=laporan&act=" class="dropdown-item">Proses</a>
+                  </li>
+                  <li>
+                    <a tabindex="-1" href="main.php?pages=kirim&act=" class="dropdown-item">Kirim</a>
+                  </li>
+                </ul>
+              </li>
               <li><a href="main.php?pages=testi" class="dropdown-item">Testimoni</a></li>
             </ul>
           </li>

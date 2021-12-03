@@ -26,6 +26,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         } else if ($_GET['pages'] == 'laporan') {
             include "pages/laporan/laporan.php";
 
+        } else if ($_GET['pages'] == 'kirim') {
+            include "pages/kirim/laporan.php";
+
         } else if ($_GET['pages'] == 'batal') {
             include "pages/batal/laporan.php";
 
