@@ -13,7 +13,7 @@
 		}
 											
 		$tot_order_lunas=0;
-		$kueri = "select id_orders from orders where status_order = 'lunas'";
+		$kueri = "select id_orders from orders where status_order = 'lunas' or status_order = 'kirim'";
 		$proses = mysqli_query($koneksi, $kueri);
 		while ($data = mysqli_fetch_array($proses))
 		{						

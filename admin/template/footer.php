@@ -393,6 +393,28 @@
     });
   })
 </script>
+<!-- Summernote -->
+<script src="asset/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- CodeMirror -->
+<script src="asset/plugins/codemirror/codemirror.js"></script>
+<script src="asset/plugins/codemirror/mode/css/css.js"></script>
+<script src="asset/plugins/codemirror/mode/xml/xml.js"></script>
+<script src="asset/plugins/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="asset/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    // Summernote
+    $('#summernote').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
 
 </body>
 </html>

@@ -118,7 +118,7 @@
                     <a tabindex="-1" href="main.php?pages=kategori_barang&act=" class="dropdown-item">Kategori</a>
                   </li>
                   <li>
-                    <a tabindex="-1" href="main.php?pages=produk&act=" class="dropdown-item">Nama</a>
+                    <a tabindex="-1" href="main.php?pages=produk&act=" class="dropdown-item">Master Produk</a>
                   </li>
                 </ul>
               </li>
