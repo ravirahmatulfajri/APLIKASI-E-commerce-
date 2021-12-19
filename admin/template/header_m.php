@@ -78,43 +78,6 @@
               <li><a href="main.php?pages=testi" class="dropdown-item">Testimoni</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">MANAGE</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <!-- Level two dropdown-->
-              <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Site</a>
-                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                  <li>
-                    <a tabindex="-1" href="main.php?pages=profil" class="dropdown-item">Profil Toko</a>
-                  </li>
-                  <li>
-                    <a tabindex="-1" href="main.php?pages=cara_beli" class="dropdown-item">Cara Beli</a>
-                  </li>
-                  <li>
-                    <a tabindex="-1" href="main.php?pages=banner&act=" class="dropdown-item">Banner</a>
-                  </li>
-                  <li>
-                    <a tabindex="-1" href="main.php?pages=artikel&act=" class="dropdown-item">Artikel</a>
-                  </li>
-                </ul>
-              </li>
-              <!-- End Level two -->
-              <!-- Level two dropdown-->
-              <li class="dropdown-submenu dropdown-hover">
-                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Produk</a>
-                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                  <li>
-                    <a tabindex="-1" href="main.php?pages=kategori_barang&act=" class="dropdown-item">Kategori</a>
-                  </li>
-                  <li>
-                    <a tabindex="-1" href="main.php?pages=produk&act=" class="dropdown-item">Master Produk</a>
-                  </li>
-                </ul>
-              </li>
-              <!-- End Level two -->
-            </ul>
-          </li>
         </ul>
       </div>
       <!-- Right navbar links -->

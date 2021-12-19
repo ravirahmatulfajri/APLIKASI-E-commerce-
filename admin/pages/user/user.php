@@ -120,7 +120,7 @@ switch($_GET['act']){
                 $pilihan .= "<option value=$status";
                 $pilihan .= ">$status</option>\r\n";
                 }
-              $pilihan_role = array('admin', 'user');
+              $pilihan_role = array('admin', 'operator', 'manajer');
               $role = '';
               foreach ($pilihan_role as $a) {
                 $role .= "<option value=$a";
