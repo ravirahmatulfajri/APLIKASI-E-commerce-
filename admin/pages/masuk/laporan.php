@@ -79,6 +79,9 @@ switch($_GET['act']){
                       <td>
                             <div class="input-group-btn">
                               <a href="<?= $admin_url; ?>main.php?pages=masuk&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
+                              <a href="./pages/masuk/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
+                                  <button class="btn btn-secondary">Cetak Invoice</button>
+                              </a>
                             </div>
                           </td>
                     </tr>
@@ -160,8 +163,11 @@ switch($_GET['act']){
                   </div>
                   </form>
                   <div>
-                    <a class="nav-link" href="pages/Masuk/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
-                      <button class="btn btn-warning">Cetak</button>
+                    <a href="pages/Masuk/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
+                      <button class="btn btn-warning">PDF</button>
+                    </a>
+                    <a href="pages/Masuk/excel.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
+                      <button class="btn btn-warning">EXCEL</button>
                     </a>
                   </div>
                 </div>
@@ -189,6 +195,9 @@ switch($_GET['act']){
                         <td>
                               <div class="input-group-btn">
                                 <a href="<?= $admin_url; ?>main.php?pages=masuk&act=detailorder&id_order=<?= $o['id_orders']; ?>" class="btn btn-warning">Detail</i></a>
+                                <a href="./pages/masuk/invoice.php?id_order=<?= $o['id_orders']; ?>"  target='_blank'>
+                                  <button class="btn btn-secondary">Cetak Invoice</button>
+                                </a>
                               </div>
                             </td>
                       </tr>

@@ -166,8 +166,11 @@ switch($_GET['act']){
                   </div>
                   </form>
                   <div>
-                    <a class="nav-link" href="pages/laporan/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
-                      <button class="btn btn-warning">Cetak</button>
+                    <a href="pages/laporan/pdf_toko.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
+                      <button class="btn btn-warning">PDF</button>
+                    </a>
+                    <a href="pages/laporan/excel.php?tanggal=<?= $tanggal; ?>&tanggal1=<?= $tanggal1; ?>" target='_blank'>
+                      <button class="btn btn-warning">EXCEL</button>
                     </a>
                   </div>
                 </div>
