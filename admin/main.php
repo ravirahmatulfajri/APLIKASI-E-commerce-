@@ -79,9 +79,6 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/banner/banner.php";
         } else if ($_GET['pages'] == 'aksi_banner') {
             include "pages/banner/aksi.php";
-
-        } else if ($_GET['pages'] == 'test') {
-            include "pages/home/home2.php";
             
         }  else {
             include "pages/home/home.php";
@@ -153,9 +150,6 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
             include "pages/banner/banner.php";
         } else if ($_GET['pages'] == 'aksi_banner') {
             include "pages/banner/aksi.php";
-
-        } else if ($_GET['pages'] == 'test') {
-            include "pages/home/home2.php";
             
         }  else {
             include "pages/error/403.php";
@@ -167,9 +161,9 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])) {
         include "template/header_m.php";
 
         if (empty($_GET)) {
-            include "pages/home/home.php";
+            include "pages/home/home_m.php";
         } else if ($_GET['pages'] == 'home') {
-            include "pages/home/home.php";
+            include "pages/home/home_m.php";
 
         } else if ($_GET['pages'] == 'testi') {
             include "pages/testi/testi.php";
