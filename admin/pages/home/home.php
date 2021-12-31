@@ -4,6 +4,28 @@
 
   <!-- Content Wrapper. Contains page content -->
   <?php
+    $kueri = "SELECT count(distinct id_kustomer) as tt FROM orders";
+    $proses = mysqli_query($koneksi, $kueri);
+    while ($data = mysqli_fetch_array($proses))
+    {						
+    $tot_user_order=$data['tt'];
+    }
+
+    $kueri = "SELECT sum(b.jumlah) as tt FROM orders a, orders_detail b WHERE a.id_orders = b.id_orders";
+    $proses = mysqli_query($koneksi, $kueri);
+    while ($data = mysqli_fetch_array($proses))
+    {						
+    $tot_barang_order=$data['tt'];
+    }
+
+    $tot_order_masuk=0;
+		$kueri = "select id_orders from orders";
+		$proses = mysqli_query($koneksi, $kueri);
+		while ($data = mysqli_fetch_array($proses))
+		{						
+    $tot_order_masuk++;
+		}
+
     $tot_order_baru=0;
 		$kueri = "select id_orders from orders where status_order = 'baru'";
 		$proses = mysqli_query($koneksi, $kueri);
@@ -18,6 +40,14 @@
 		while ($data = mysqli_fetch_array($proses))
 		{						
     $tot_order_lunas++;
+		}
+
+    $tot_order_batal=0;
+		$kueri = "select id_orders from orders where status_order = 'batal'";
+		$proses = mysqli_query($koneksi, $kueri);
+		while ($data = mysqli_fetch_array($proses))
+		{						
+    $tot_order_batal++;
 		}
 	?>
   <div class="content-wrapper">
@@ -44,30 +74,68 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo"$tot_user_order" ?></sup></h3>
+
+                <p>User Order</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3><?php echo"$tot_barang_order" ?></sup></h3>
+
+                <p>Orderan Barang</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3><?php echo"$tot_order_masuk" ?></sup></h3>
+
+                <p>Orderan Masuk</p>
+              </div>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
               <div class="inner">
                 <h3><?php echo"$tot_order_baru" ?></sup></h3>
 
                 <p>Orderan Baru</p>
               </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
             </div>
           </div>
           <!-- ./col -->
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-2 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-success">
               <div class="inner">
                 <h3><?php echo"$tot_order_lunas" ?></h3>
 
                 <p>Orderan Lunas</p>
               </div>
-              <div class="icon">
-                <i class="ion ion-person-stalker"></i>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-2 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?php echo"$tot_order_batal" ?></h3>
+
+                <p>Orderan Batal</p>
               </div>
             </div>
           </div>
