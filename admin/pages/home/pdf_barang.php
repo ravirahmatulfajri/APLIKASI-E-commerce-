@@ -16,18 +16,10 @@ $all = $pdf->openObject();
 $pdf->setStrokeColor(0, 0, 0, 1);
 $pdf->addJpegFromFile('logo.jpg',20,800,69);
 
-// Menampilkan filter
-$tgl = $_GET['tanggal'];
-$tgl1 = $_GET['tanggal1'];
-$tangl = date('d-F-Y', strtotime($tgl));
-$tangl1 = date('d-F-Y', strtotime($tgl1));
-
 // Teks di tengah atas untuk judul header
-$pdf->addText(200, 820, 16,'<b>Laporan Orderan Masuk</b>');
+$pdf->addText(200, 820, 16,'<b>Laporan Barang Orderan</b>');
 $pdf->addText(240, 800, 14,'<b>Plaza Agro UGM</b>');
 
-// Teks filter 
-$pdf->addText(20, 780, 10,'<b>Periode '. $tangl .' s/d '.  $tangl1 .'</b>');
 
 // Garis atas untuk header
 $pdf->line(10, 775, 578, 775);
@@ -42,17 +34,12 @@ $pdf->closeObject();
 // Tampilkan object di semua halaman
 $pdf->addObject($all, 'all');
 
-// Baca input tanggal yang dikirimkan user
-$mulai=$_GET['tanggal'];
-$selesai=$_GET['tanggal1'];
-
 // Query untuk merelasikan kedua tabel di filter berdasarkan tanggal
 $sql = mysqli_query($koneksi,"SELECT orders.id_orders as faktur,DATE_FORMAT(tgl_order, '%d-%m-%Y') as tanggal,
                     nama_produk,jumlah,harga 
                     FROM orders, orders_detail, produk  
                     WHERE (orders_detail.id_produk=produk.id_produk) 
-                    AND (orders_detail.id_orders=orders.id_orders)
-                    AND (orders.tgl_order BETWEEN '$mulai' AND '$selesai')");
+                    AND (orders_detail.id_orders=orders.id_orders)");
 $jml = mysqli_num_rows($sql);
 
 if ($jml > 0){

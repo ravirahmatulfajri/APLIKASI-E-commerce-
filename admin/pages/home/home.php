@@ -82,6 +82,7 @@
 
                 <p>User Order</p>
               </div>
+              <a href="pages/home/pdf_user.php" target='_blank' class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -93,6 +94,7 @@
 
                 <p>Orderan Barang</p>
               </div>
+              <a href="pages/home/pdf_barang.php" target='_blank' class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -104,6 +106,7 @@
 
                 <p>Orderan Masuk</p>
               </div>
+              <a href="main.php?pages=masuk&act=" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -115,6 +118,7 @@
 
                 <p>Orderan Baru</p>
               </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -126,6 +130,15 @@
 
                 <p>Orderan Lunas</p>
               </div>
+              <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="small-box-footer dropdown-item dropdown-toggle">More info</a>
+              <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                <li>
+                  <a tabindex="-1" href="main.php?pages=laporan&act=" class="dropdown-item">Proses</a>
+                </li>
+                <li>
+                  <a tabindex="-1" href="main.php?pages=kirim&act=" class="dropdown-item">Kirim</a>
+                </li>
+              </ul>
             </div>
           </div>
           <!-- ./col -->
@@ -137,6 +150,7 @@
 
                 <p>Orderan Batal</p>
               </div>
+              <a href="main.php?pages=batal&act=" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
