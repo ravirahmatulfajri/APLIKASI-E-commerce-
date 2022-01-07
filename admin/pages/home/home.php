@@ -82,7 +82,7 @@
 
                 <p>User Order</p>
               </div>
-              <a href="pages/home/pdf_user.php" target='_blank' class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="main.php?pages=customer&act=" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

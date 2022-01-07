@@ -10,6 +10,14 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
+// Buat sebuah variabel untuk menampung pengaturan style dari header utama
+$style_h = [
+  'font' => ['bold' => true, 'size' => 20], // Set font nya jadi bold dan ukuran berubah
+  'alignment' => [
+    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER, // Set text jadi ditengah secara horizontal (center)
+    'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER // Set text jadi di tengah secara vertical (middle)
+  ]
+];
 // Buat sebuah variabel untuk menampung pengaturan style dari header tabel
 $style_col = [
   'font' => ['bold' => true], // Set font nya jadi bold
@@ -57,6 +65,8 @@ $sheet->setCellValue('E5', "Qty"); // Set kolom E4 dengan tulisan
 $sheet->setCellValue('F5', "Harga"); // Set kolom E4 dengan tulisan
 $sheet->setCellValue('G5', "Sub Total"); // Set kolom E4 dengan tulisan
 // Apply style header yang telah kita buat tadi ke masing-masing kolom header
+$sheet->getStyle('A1:G1')->applyFromArray($style_h);
+$sheet->getStyle('A2:G2')->applyFromArray($style_h);
 $sheet->getStyle('A5')->applyFromArray($style_col);
 $sheet->getStyle('B5')->applyFromArray($style_col);
 $sheet->getStyle('C5')->applyFromArray($style_col);
@@ -78,8 +88,8 @@ $sql = mysqli_query($koneksi,"SELECT orders.id_orders as faktur,DATE_FORMAT(tgl_
                     nama_produk,jumlah,harga 
                     FROM orders, orders_detail, produk  
                     WHERE (orders_detail.id_produk=produk.id_produk) 
-                    AND (orders_detail.id_orders=orders.id_orders) 
-                    AND (orders.status_order='Kirim') 
+                    AND (orders_detail.id_orders=orders.id_orders)
+                    AND (orders.status_order='kirim')
                     AND (orders.tgl_order BETWEEN '$mulai' AND '$selesai')");
 $no = 1; // Untuk penomoran tabel, di awal set dengan 1
 $numrow = 6; // Set baris pertama untuk isi tabel adalah baris ke 5
@@ -123,5 +133,6 @@ header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetm
 header('Content-Disposition: attachment; filename="Detail_Transaksi_Account.xlsx"'); // Set nama file sheet nya
 header('Cache-Control: max-age=0');
 $writer = new Xlsx($spreadsheet);
+ob_end_clean();
 $writer->save('php://output');
 ?>
