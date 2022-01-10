@@ -24,7 +24,24 @@ switch($_GET['act']){
 <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Daftar Kategori Barang</h3>
+                <h3 class="card-title">Daftar Kategori Barang</h3><br>
+                <div class="card-tools">
+                    <form method="POST" action="main.php?pages=kategori_barang&act=custom">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" name="search" placeholder="Type your keywords here">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-lg btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div><br>
+                <div>
+                  <a href="main.php?pages=kategori_barang&act=tambahkategori">
+                    <button class="btn btn-success">Tambah Daftar</button>
+                  </a>
+                </div><br>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -58,13 +75,88 @@ switch($_GET['act']){
               </div>
               <!-- /.card-body -->
             </div>
-            <ul class="nav navbar-right panel_toolbox">
-                      <div class="input-group-btn float-right">
-                      <a href="main.php?pages=kategori_barang&act=tambahkategori">
-                        <button href="index.php" type="button" class="btn btn-primary">Tambah Daftar</button>
-                      </a>
-                    </div>                      
-                    </ul>
+            <!-- /.card -->
+                    </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <?php
+  break;
+
+  case "custom":?> 
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Barang</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="<?= $admin_url ?>main.php?pages=home">Home</a></li>
+              <li class="breadcrumb-item active">Kategori Barang</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+<div class="col-12">
+            <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Daftar Kategori Barang</h3><br>
+                <div class="card-tools">
+                    <form method="POST" action="main.php?pages=kategori_barang&act=custom">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" name="search" value="<?= $_POST['search'] ?>" placeholder="Type your keywords here">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-lg btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div><br>
+                <div>
+                  <a href="main.php?pages=kategori_barang&act=tambahkategori">
+                    <button class="btn btn-success">Tambah Daftar</button>
+                  </a>
+                </div><br>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th style="width: 20px">#</th>
+                      <th>Nama Kategori</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                            $query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE nama_kategori LIKE '%$_POST[search]%' ORDER BY id_kategori DESC");
+                            $i=1;
+                            while($k=mysqli_fetch_array($query)){                              
+                          ?>
+                    <tr>
+                      <td><?= $i ?>.</td>
+                      <td><?= $k['nama_kategori'] ?></td>
+                      <td>
+                            <div class="input-group-btn pb-1">
+                              <a href="<?= $admin_url; ?>main.php?pages=kategori_barang&act=editkategori&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                              <a href="<?= $admin_url; ?>main.php?pages=aksi_kategori&act=hapus&id_kategori=<?= $k['id_kategori']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
+                            </div>
+                          </td>
+                    </tr>
+                    <?php $i++;} ?> 
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
             <!-- /.card -->
                     </div>
       </div><!-- /.container-fluid -->
