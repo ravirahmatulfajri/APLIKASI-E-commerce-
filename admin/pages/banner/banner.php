@@ -25,10 +25,14 @@ switch($_GET['act']){
     <!-- Horizontal Form -->
                 <div class='card card-info'>
                   <div class='card-header'>
-                    <h3 class='card-title'>Daftar Banner</h3>
+                    <h3 class='card-title'>Daftar Banner</h3><br><br>
+                    <div>
+                      <a href='main.php?pages=banner&act=tambahbanner'>
+                        <button class='btn btn-success'>Tambah Daftar</button>
+                      </a>
+                    </div>
                   </div>
                   <div class='card-body'>
-          <input type=button class='btn btn-success' value='Tambah Banner' onclick=location.href='main.php?pages=banner&act=tambahbanner'>
           <table class='table' border='1' cellpadding='10' cellspacing='0'> <thead class='thead-dark'>
           <tr><th>no</th><th>judul</th><th>Gambar</th><th>url</th><th>tgl. posting</th><th>aksi</th></tr></thead>";
     $tampil=mysqli_query($koneksi,"SELECT * FROM banner ORDER BY id_banner DESC");

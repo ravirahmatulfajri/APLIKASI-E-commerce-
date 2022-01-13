@@ -24,7 +24,12 @@ switch($_GET['act']){
 <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Daftar Nama Artikel</h3>
+                <h3 class="card-title">Daftar Nama Artikel</h3><br><br>
+                <div>
+                  <a href="main.php?pages=artikel&act=tambahartikel">
+                    <button class="btn btn-success">Tambah Daftar</button>
+                  </a>
+                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -62,13 +67,6 @@ switch($_GET['act']){
               </div>
               <!-- /.card-body -->
             </div>
-            <ul class="nav navbar-right panel_toolbox">
-                      <div class="input-group-btn float-right">
-                      <a href="main.php?pages=artikel&act=tambahartikel">
-                        <button type="button" class="btn btn-primary">Tambah Daftar</button>
-                      </a>
-                    </div>                      
-                    </ul>
             <!-- /.card -->
                     </div>
       </div><!-- /.container-fluid -->
