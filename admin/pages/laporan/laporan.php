@@ -57,7 +57,7 @@ switch($_GET['act']){
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>Nama Kustomer</th>
@@ -176,7 +176,7 @@ switch($_GET['act']){
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-                  <table class="table table-bordered table-striped">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>Nama Kustomer</th>

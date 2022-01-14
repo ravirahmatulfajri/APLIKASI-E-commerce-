@@ -21,10 +21,10 @@ switch($_GET['act']){
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-<div class="col-12">
+    <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Daftar User</h3><br><br>
+                <h3 class="card-title">Daftar Nama User</h3><br><br>
                 <div>
                   <a href="main.php?pages=user&act=tambahkategori">
                     <button class="btn btn-success">Tambah Daftar</button>
@@ -33,36 +33,33 @@ switch($_GET['act']){
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
-                <table class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped">
                   <thead>
-                    <tr>
+                  <tr>
                       <th style="width: 20px">#</th>
                       <th>Username</th>
-                      <th>Password</th>
                       <th>Realname</th>
                       <th>Email</th>
                       <th>Phone</th>
                       <th>Role</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                      include "../lib/config.php";
-                      include "../lib/koneksi.php";
-                      $query = mysqli_query($koneksi, "SELECT * FROM admins ");
+                  <?php
+                      $query = mysqli_query($koneksi, "SELECT * FROM admins");
                       $i=1;
                       while($u=mysqli_fetch_array($query)){                              
                     ?>
                     <tr>
                       <td><?= $i ?>.</td>
                       <td><?= $u['username'] ?></td>
-                      <td><?= $u['password'] ?></td>
                       <td><?= $u['nama_lengkap'] ?></td>
                       <td><?= $u['email'] ?></td>
                       <td><?= $u['no_telp'] ?></td>
                       <td><?= $u['level'] ?></td>
                       <td>
-                        <div class="input-group-btn">
+                        <div class="input-group-btn pb-1">
                           <a href="<?= $admin_url; ?>main.php?pages=aksi_user&act=hapus&username=<?= $u['username']; ?>" class="btn btn-danger"><i class="fas fa-power-off"></i></a>
                         </div>
                       </td>
@@ -73,8 +70,8 @@ switch($_GET['act']){
               </div>
               <!-- /.card-body -->
             </div>
-    <!-- /.card -->
-            </div>
+            <!-- /.card -->
+                    </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
