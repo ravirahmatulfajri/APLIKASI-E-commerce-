@@ -25,11 +25,6 @@ function validasi(form){
     form.kota.focus();
     return (false);
   }
-  if (form.kode.value == ""){
-    alert("Anda belum mengisikan Kode.");
-    form.kode.focus();
-    return (false);
-  }
   return (true);
 }
 
@@ -105,25 +100,32 @@ elseif ($_GET['module']=='detailproduk'){
   include "diskon_stok.php";
   
   echo " 
+  <section class='featured spad'>
   <div class='container'>
-  <div class='row'>
-  <div class='col-lg-12'>
-  <div class='hero__text' align='center'><h2>Kategori: <a href='kategori-$r[id_kategori]-$r[kategori_seo].html'>$r[nama_kategori]</a></div>
-    	  <div class='prod_box_big'>
-        	<div class='top_prod_box_big'></div>
-        <div class='center_prod_box_big'>            
-                 <div class='product_img_big'>
-                 <a href='#'><img src='foto_produk/$r[gambar]' border='0' /></a>
-            <div class='prod_price'>$divharga</div>
-            <p align=center>(stok: $r[stok])</p>
-            $tombol
+  <div class='col-12 mix oranges fresh-meat'>
+  <div class='featured__item'>
+  <div class='section-title product__discount__title'>
+                            <h2><a href='kategori-$r[id_kategori]-$r[kategori_seo].html'>$r[nama_kategori]</a></h2>
+                        </div>
+ 
+    	             
+        <div class='featured__item__pic set-bg' style='background-size: auto; cursor: pointer;' data-setbg='foto_produk/$r[gambar]'>
+       
+        <ul class='featured__item__pic__hover'>
+            <li><a href='produk-$r[id_produk]-$r[produk_seo].html'><i class='fa fa-retweet'></i></a></li>
+            <li><a href=\"aksi.php?module=keranjang&act=tambah&id=$r[id_produk]\"><i class='fa fa-shopping-cart'></i></a></li>
+        </ul>
+    </div>
+    <div class='featured__item__text'>
+                        <h6><a href='produk-$r[id_produk]-$r[produk_seo].html'>$r[nama_produk]</a></a></h6>
+                        <h5>$divharga</h5>(stok: $r[stok])</p>
             </div>
-          <div class='details_big_box'>
-            <div class='product_title_big'>$r[nama_produk]</div>
-              <div>$r[deskripsi]</div>
-          </div>    
-          </div>
-            <div class='bottom_prod_box_big'></div>
+            <div>$r[deskripsi]</div>
+      </div>
+      </section>
+           
+           
+           </div>
           </div>";
           
 // Produk Lainnya (random)          
@@ -136,23 +138,33 @@ elseif ($_GET['module']=='detailproduk'){
   include "diskon_stok.php";
 
     echo "<br>
-    <div class='d-flex justify-content-between'> 
-    <div class='prod_box'>
-          <div class='top_prod_box'></div> 
-          <div class='center_prod_box'>            
-             <div class='product_title'><a href='produk-$r[id_produk]-$r[produk_seo].html'>$r[nama_produk]</a></div>
-             <div class='product_img'>
-               <a href='produk-$r[id_produk]-$r[produk_seo].html'>
-               <img src='foto_produk/small_$r[gambar]' border='0' height='110'></a>
-             </div>
-            <div class='prod_price'>$divharga</div>
-          </div>
-          <div class='bottom_prod_box'></div>
-          <div class='prod_details_tab'>
-             $tombol            
-             <a href='produk-$r[id_produk]-$r[produk_seo].html' class='prod_details'>selengkapnya</a>            
-          </div> 
-          </div>";
+
+    <section class='featured spad'>
+  <div class='container'>
+  <div class='col-12 mix oranges fresh-meat'>
+  <div class='featured__item'>
+  <div class='section-title product__discount__title'>
+                            <h2><a href='kategori-$r[id_kategori]-$r[kategori_seo].html'>$r[nama_kategori]</a></h2>
+                        </div>
+ 
+    	             
+        <div class='featured__item__pic set-bg' style='background-size: auto; cursor: pointer;' data-setbg='foto_produk/$r[gambar]'>
+       
+        <ul class='featured__item__pic__hover'>
+            <li><a href='produk-$r[id_produk]-$r[produk_seo].html'><i class='fa fa-retweet'></i></a></li>
+            <li><a href=\"aksi.php?module=keranjang&act=tambah&id=$r[id_produk]\"><i class='fa fa-shopping-cart'></i></a></li>
+        </ul>
+    </div>
+    <div class='featured__item__text'>
+                        <h6><a href='produk-$r[id_produk]-$r[produk_seo].html'>$r[nama_produk]</a></a></h6>
+                        <h5>$divharga</h5>(stok: $r[stok])</p>
+            </div>
+            <div>$r[deskripsi]</div>
+      </div>
+      </section>
+           
+        
+          ";
   }                                      
 }
 
@@ -469,15 +481,41 @@ elseif ($_GET['module']=='hubungikami'){
             <div class='details_big_box'>
             <div class='hero__text'><span>Hubungi Kami Secara Online:</span></div><br>
               <div>
-        <table width=100%>
-        <form action=hubungi-aksi.html method=POST>
-        <tr><td>Nama</td><td> : <input type=text name=nama size=60></td></tr>
-        <tr><td>Email</td><td> : <input type=text name=email size=60></td></tr>
-        <tr><td>Subjek</td><td> : <input type=text name=subjek size=60></td></tr>
-        <tr><td valign=top>Pesan</td><td>  : <textarea name=pesan  style='width: 464px; height: 200px;'></textarea></td></tr>
-        <tr><td>&nbsp;</td><td><img src='captcha.php'></td></tr>
-        <tr><td>&nbsp;</td><td>(masukkan 6 kode di atas)<br /><input type=text name=kode size=6 maxlength=6><br /></td></tr>
-        </td><td colspan=2><input type=submit class='site-btn' name=submit value=Kirim></td></tr>
+
+              <!-- Contact Form Begin -->
+    
+              <div class='contact-form spad'>
+                  <div class='container'>
+                      <div class='row'>
+                          
+                      </div>
+                      <form action='hubungi-aksi.html method=POST'>
+                          <div class='row'>
+                          
+                          <table>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='nama' placeholder='Your Name'>
+                              </div>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='password' placeholder='Your Email'>
+                              </div>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='password' placeholder='Subjek'>
+                              </div>
+                              <div class='col-lg-12 text-center'>
+                              
+                                  <textarea placeholder='Pesan' type=text></textarea>
+                                  <input type='submit' name='submit' class='site-btn' value='Kirim'>
+                                  
+                              </div>
+                              
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <!-- Contact Form End -->
+
+       
         </form></table>
           </div>
           </div>    
@@ -513,46 +551,7 @@ elseif (empty($pesan)){
   echo "Anda belum mengisikan PESAN<br />
   	      <a href=javascript:history.go(-1)><b>Ulangi Lagi</b>";
 }
-else{
-	if(!empty($_POST['kode'])){
-		if($_POST['kode']==$_SESSION['captcha_session']){
 
-  mysqli_query($connect,"INSERT INTO hubungi(nama,
-                                   email,
-                                   subjek,
-                                   pesan,
-                                   tanggal) 
-                        VALUES('$_POST[nama]',
-                               '$_POST[email]',
-                               '$_POST[subjek]',
-                               '$_POST[pesan]',
-                               '$tgl_sekarang')");
-
-  echo "<div class='center_title_bar'>Hubungi Kami</div>
-    	  <div class='prod_box_big'>
-        	<div class='top_prod_box_big'></div>
-        <div class='center_prod_box_big'>            
-                 <div class='product_img_big'>
-                 <img src='foto_banner/gedung.jpg' border='0' />
-            </div>
-          <div class='details_big_box'>
-            <div class='product_title_big'>Terimakasih</div>
-              <div>
-              <br />Terimakasih telah menghubungi kami.<br /><br /> Kami akan segera membalasnya ke email Anda.
-              </div>
-          </div>    
-          </div>
-            <div class='bottom_prod_box_big'></div>
-          </div>";
-		}else{
-			echo "Kode yang Anda masukkan tidak cocok<br />
-			      <a href=javascript:history.go(-1)><b>Ulangi Lagi</b></a>";
-		}
-	}else{
-		echo "Anda belum memasukkan kode<br />
-  	      <a href=javascript:history.go(-1)><b>Ulangi Lagi</b></a>";
-	}
-}                              
 }
 
 
@@ -647,59 +646,122 @@ elseif ($_GET['module']=='selesaibelanja'){
   <div class='container'>
   <div class='row'>
   <div class='col-lg-12'>
-  <div class='hero__text' align='center'><h2>Kustomer Lama</h2></div>";
+  ";
     	  echo "<div class='prod_box_big'>
         	<div class='top_prod_box_big'></div>
         <div class='center_prod_box_big'>            
           <div class='details_big_cari'>
               <div>
-      <form name=form2 action=simpan-transaksi-member.html method=POST onSubmit=\"return validasi2(this)\">
-      <table>
-      <tr><td>Email</td><td> : <input type=text name=email size=30></td></tr>
-      <tr><td>Password</td><td> : <input type=password name=password size=30></td></tr>
-      <tr><td><input type='submit' class='button' value='Login'></td><td align=right><a href='lupa-password.html'>Lupa Password?</a></td></tr>
-      </table>
-      </form>
+
+              <!-- Contact Form Begin -->
+    
+              <div class='contact-form spad'>
+                  <div class='container'>
+                      <div class='row'>
+                          <div class='col-lg-12'>
+                              <div class='contact__form__title'>
+                                  <h2>Kustomer Lama</h2>
+                              </div>
+                          </div>
+                      </div>
+                      <form action='#'>
+                          <div class='row'>
+                          <form name=form2 action=simpan-transaksi-member.html method=POST onSubmit=\"return validasi2(this)\">
+                          <table>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='email' placeholder='Your Email'>
+                              </div>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='password' placeholder='Your Password'>
+                              </div>
+                             
+                            
+                              <div class='col-lg-12 text-center'>
+                              
+                                  <input type='submit'  class='site-btn' value='Login'>
+                                  <a href='lupa-password.html' button class='site-btn'>LUPA PASSWORD?</a>
+                              </div>
+                              
+                          </div>
+                      </form>
+                  </div>
               </div>
-          </div>    
-          </div>
-            <div class='bottom_prod_box_big'></div>
-          </div>
-          </div>
-          </div>
-      </div>
+              <!-- Contact Form End -->
+
+
+      
+     
+      </form>
+              
   </section><br><br>";                      
 
   echo "<section class='featured spad'>
   <div class='container'>
   <div class='row'>
   <div class='col-lg-12'>
-  <div class='hero__text' align='center'><h2>Kustomer Baru</h2></div>";
+  ";
     	  echo "<div class='prod_box_big'>
         	<div class='top_prod_box_big'></div>
         <div class='center_prod_box_big'>            
           <div class='details_big_cari'>
               <div>
-      <form name=form action=simpan-transaksi.html method=POST onSubmit=\"return validasi(this)\">
+
+
+              <!-- Contact Form Begin -->
+              <div class='contact-form spad'>
+                  <div class='container'>
+                      <div class='row'>
+                          <div class='col-lg-12'>
+                              <div class='contact__form__title'>
+                                  <h2>Kustomer Baru</h2>
+                              </div>
+                          </div>
+                      </div>
+                      <form action='#'>
+                          <div class='row'>
+                          <form name=form action=simpan-transaksi.html method=POST onSubmit=\"return validasi(this)\">
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='nama' placeholder='Nama Lengkap'>
+                              </div>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='password' placeholder='Password'>
+                              </div>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='email' placeholder='Email'>
+                              </div>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='telpon' placeholder='Telepon/HP'>
+                              </div>
+                              <div class='col-lg-12 text-center'>
+                                  <textarea placeholder='Alamat Pengiriman' type=text></textarea>
+                              <span>Alamat pengiriman harus di isi lengkap, termasuk kota/kabupaten dan kode posnya.</span>
+                              <div class='col-lg-12 col-md-6'>
+                              
+                              <br>KOTA TUJUAN</br>
+                              <<select name='kota'>
+                              <option value=0 selected>- Pilih Kota -</option>";
+                              $tampil=mysqli_query($connect,"SELECT * FROM kota ORDER BY nama_kota");
+                              while($r=mysqli_fetch_array($tampil)){
+                                 echo "<option value=$r[id_kota]>$r[nama_kota]</option>";
+                              }
+                          echo "</select> <br /><br />*)  Apabila tidak terdapat nama kota tujuan Anda, pilih <b>Lainnya</b>
+                                          <br />**) Ongkos kirim dihitung berdasarkan kota tujuan</td></tr>
+                                       
+                              </div>
+                              
+     
+                  <input type='submit'  class='site-btn' value='Daftar'></td>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <!-- Contact Form End -->
+                
+
+      
       <table>
-      <tr><td>Nama Lengkap</td><td> : <input type=text name=nama size=30></td></tr>
-      <tr><td>Password</td><td> : <input type=text name=password></td></tr>
-      <tr><td>Alamat Pengiriman</td><td> : <input type=text name=alamat size=80>
-      <br />: Alamat pengiriman harus di isi lengkap, termasuk kota/kabupaten dan kode posnya.</td></tr>
-      <tr><td>Telpon/HP</td><td> : <input type=text name=telpon></td></tr>
-      <tr><td>Email</td><td> : <input type=text name=email size=30></td></tr>
-      <tr><td valign=top>Kota Tujuan</td><td> :  
-      <select name='kota'>
-      <option value=0 selected>- Pilih Kota -</option>";
-      $tampil=mysqli_query($connect,"SELECT * FROM kota ORDER BY nama_kota");
-      while($r=mysqli_fetch_array($tampil)){
-         echo "<option value=$r[id_kota]>$r[nama_kota]</option>";
-      }
-  echo "</select> <br /><br />*)  Apabila tidak terdapat nama kota tujuan Anda, pilih <b>Lainnya</b>
-                  <br />**) Ongkos kirim dihitung berdasarkan kota tujuan</td></tr>
-        <tr><td>&nbsp;</td><td><img src='captcha.php'></td></tr>
-        <tr><td>&nbsp;</td><td>(Masukkan 6 kode diatas)<br /><input type=text name=kode size=6 maxlength=6><br /></td></tr>
-      <tr><td colspan=2><input type='submit' class='button' value='Daftar'></td></tr>
+     
       </table>
       </form>
               </div>
@@ -717,18 +779,47 @@ elseif ($_GET['module']=='selesaibelanja'){
 
 // Modul lupa password
 elseif ($_GET['module']=='lupapassword'){
-  echo "<div class='center_title_bar'>Lupa Password</div>";
+  echo "<div class='col-12'>
+  <div class='product__discount'>
+      <div class='section-title product__discount__title'>
+          <h2>Lupa Password</h2>
+      </div>";
     	  echo "<div class='prod_box_big'>
         	<div class='top_prod_box_big'></div>
         <div class='center_prod_box_big'>            
           <div class='details_big_cari'>
               <div>
-      <form name=form3 action=kirim-password.html method=POST>
-      <table>
-      <tr><td>Masukkan Email Anda</td><td> : <input type=text name=email size=30></td></tr>
-      <tr><td colspan=2><input type='submit' class='button' value='Kirim'></td></td></tr>
-      </table>
-      </form>
+     
+
+     <!-- Contact Form Begin -->
+    
+              <div class='contact-form spad'>
+                  <div class='container'>
+                     
+                      <form action='#'>
+                          <div class='row'>
+                          <form name=form3 action=kirim-password.html method=POST>
+                          <table>
+                              <div class='col-lg-6 col-md-6'>
+                                  <input type='text' name='email' placeholder='Masukkan Email Anda'>
+                              </div>
+                              
+                             
+                            
+                              <div class='col-lg-12 text-center'>
+                              
+                                  <input type='submit' class='site-btn' value='Kirim'>
+                                  
+                              </div>
+                              
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              <!-- Contact Form End -->
+
+
+     
               </div>
           </div>    
           </div>
@@ -799,7 +890,7 @@ if ($cek_email > 0){
   echo "Email <b>$_POST[email]</b> sudah ada yang pakai.<br />
         <a href=javascript:history.go(-1)><b>Ulangi Lagi</b></a>";
 }
-elseif (empty($_POST['nama']) || empty($_POST['password']) || empty($_POST['alamat']) || empty($_POST['telpon']) || empty($_POST['email']) || empty($_POST['kota']) || empty($_POST['kode'])){
+elseif (empty($_POST['nama']) || empty($_POST['password']) || empty($_POST['alamat']) || empty($_POST['telpon']) || empty($_POST['email']) || empty($_POST['kota'])){
   echo "Data yang Anda isikan belum lengkap<br />
   	    <a href='selesai-belanja.html'><b>Ulangi Lagi</b>";
 }
@@ -835,10 +926,10 @@ $jam_skrg = date("H:i:s");
 if(!empty($_POST['kode'])){
   if($_POST['kode']==$_SESSION['captcha_session']){
 
-// function antiinjection($data){
-//   $filter_sql = mysql_real_escape_string(stripslashes(strip_tags(htmlspecialchars($data,ENT_QUOTES))));
-//   return $filter_sql;
-// }
+function antiinjection($data){
+  $filter_sql = mysql_real_escape_string(stripslashes(strip_tags(htmlspecialchars($data,ENT_QUOTES))));
+  return $filter_sql;
+}
 
 $nama   = antiinjection($_POST['nama']);
 $alamat = antiinjection($_POST['alamat']);
@@ -977,12 +1068,9 @@ echo "<hr /><p>Data order dan nomor rekening transfer sudah terkirim ke email An
             <div class='bottom_prod_box_big'></div>
           </div>";                      
 }
-else{
-echo "Kode yang Anda masukkan tidak cocok<br />
-<a href=javascript:history.go(-1)><b>Ulangi Lagi</b></a>";
-}
+
 }else{
-echo "Anda belum memasukkan kode<br />
+echo "Anda belum memasukkan kode YEYEYE<br />
 <a href=javascript:history.go(-1)><b>Ulangi Lagi</b></a>";
 }
 }

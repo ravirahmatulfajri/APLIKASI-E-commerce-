@@ -11,6 +11,6 @@
 
 	// memilih database pada server
 	// mysqli_select_db("...") or die ( " ==> CONNECTION INVALID WITH DATABASE  <==");
-	$database = mysqli_select_db($connect, 'dbtokohp');
+	$database = mysqli_select_db($connect, 'dbtokohp_ex');
 	
 ?>
