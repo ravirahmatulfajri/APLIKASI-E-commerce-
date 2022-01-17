@@ -84,12 +84,12 @@
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="main.php?pages=pass">
-             <button class="btn btn-warning">Ganti Pass</button>
+             <button class="btn btn-warning btn-sm">Ganti Pass</button>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">
-             <button class="btn btn-danger">Log Out</button>
+             <button class="btn btn-danger btn-sm">Log Out</button>
           </a>
         </li>
         <li class="nav-item">

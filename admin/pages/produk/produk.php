@@ -24,7 +24,12 @@ switch($_GET['act']){
 <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Daftar Nama Produk</h3><br>
+                <h3 class="card-title">Daftar Nama Produk</h3><br><br>
+                <div>
+                  <a href="main.php?pages=produk&act=tambahproduk">
+                    <button class="btn btn-success">Tambah Daftar</button>
+                  </a>
+                </div><br>
                 <div class="card-tools">
                     <form method="POST" action="main.php?pages=produk&act=custom">
                         <div class="input-group">
@@ -36,12 +41,7 @@ switch($_GET['act']){
                             </div>
                         </div>
                     </form>
-                </div><br>
-                <div>
-                  <a href="main.php?pages=produk&act=tambahproduk">
-                    <button class="btn btn-success">Tambah Daftar</button>
-                  </a>
-                </div><br>
+                </div><br><br>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
@@ -121,7 +121,12 @@ switch($_GET['act']){
 <div class="col-12">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Daftar Nama Produk</h3><br>
+                <h3 class="card-title">Daftar Nama Produk</h3><br><br>
+                <div>
+                  <a href="main.php?pages=produk&act=tambahproduk">
+                    <button class="btn btn-success">Tambah Daftar</button>
+                  </a>
+                </div><br>
                 <div class="card-tools">
                     <form method="POST" action="main.php?pages=produk&act=custom">
                         <div class="input-group">
@@ -133,12 +138,7 @@ switch($_GET['act']){
                             </div>
                         </div>
                     </form>
-                </div><br>
-                <div>
-                  <a href="main.php?pages=produk&act=tambahproduk">
-                    <button class="btn btn-success">Tambah Daftar</button>
-                  </a>
-                </div><br>
+                </div><br><br>
               </div>
               <!-- /.card-header -->
               <div class="card-body p-0">
